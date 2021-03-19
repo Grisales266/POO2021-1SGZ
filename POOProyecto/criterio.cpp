@@ -1,5 +1,5 @@
 #include <iostream>
-#include "claseCriterios.h"
+#include "criterio.h"
 using namespace std;
 
 Criterios::Criterios(){

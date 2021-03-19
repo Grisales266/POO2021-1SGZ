@@ -1,23 +1,21 @@
-#include "claseActa.h"
-#include "clasePersona.h"
+#include "acta.h"
+#include "persona.h"
 #include <conio.h>
 #include <iostream>
 #include <list>
-
-void crearActa(){
-
-}
+using namespace std;
 
 int main(){
     int opcion = 0;
+	Universidad javeriana;
     cout << "Bienvenido al menu del programa.\n";
     cin >> opcion;
 		switch(opcion){
 			case 1:
-				cout << "Ha elegido crear actas de grado.\n";
-                crearActa();
+				cout << "Ha elegido crear personas.\n";
+                javeriana.crearPersona();
 			case 2:
-				< "Gracias por usar nuestro programa.\n";
+				cout << "Gracias por usar nuestro programa.\n";
 		}
 	}while(opcion != 2);
 	return 0;

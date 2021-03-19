@@ -1,13 +1,14 @@
 #ifndef CLASEPERSONA_H
 #define CLASEPERSONA_H
-#endif
 
 class Persona{
     private:
         string nombre;
         int id;
+        string email;
     public:
         Persona();
-        Persona(string, int);
-        void crearPersona();
+        Persona(string, int, string);
 };
+
+#endif

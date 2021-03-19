@@ -1,9 +1,8 @@
 #ifndef CLASECRITERIOS_H
 #define CLASECRITERIOS_H
-#endif
 #include <iostream>
 
-class Criterios{
+class Criterio{
     private:
         int cantidadCriterios;
         int idCriterio;
@@ -14,3 +13,5 @@ class Criterios{
         Criterios(int cantidadCriterios, string nombreCriterio, int idCriterio, float ponderadoCriterios);
         void crearListaDeCriterios();
 };
+
+#endif

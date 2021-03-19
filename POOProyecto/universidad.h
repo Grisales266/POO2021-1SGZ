@@ -1,6 +1,5 @@
 #ifndef UNIVERSIDAD_H
 #define UNIVERSIDAD_H
-#endif
 
 class Universidad{
     private:
@@ -9,7 +8,10 @@ class Universidad{
     public:
         Universidad();
         Universidad(list<Persona>, list<Acta>);
+        void crearActa();
+        void crearPersona();
         void crearListaActasDeGrado();
         void crearListaDePersonas();
-
 };
+
+#endif
