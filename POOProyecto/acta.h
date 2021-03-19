@@ -2,6 +2,11 @@
 #define CLASEACTA_H
 #include <iostream>
 #include "persona.h"
+#include "detalleActa.h"
+
+using namespace std;
+#include <list>
+using std::string;
 
 enum EstadoActa{
     abierto = 1, cerrado
@@ -23,7 +28,7 @@ class Acta{
         Persona codirector;
         Persona jurado1;
         Persona jurado2;
-        EstadoActa estadoActa = 1;
+        EstadoActa estadoActa = abierto;
         list<DetalleActa>listaDetallesActa;
     public:
         Acta();

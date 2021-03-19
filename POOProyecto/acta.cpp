@@ -1,6 +1,4 @@
-#include <iostream>
 #include "acta.h"
-using namespace std;
 
 Acta::Acta(){
 }

@@ -1,6 +1,7 @@
 #ifndef CLASECRITERIOS_H
 #define CLASECRITERIOS_H
 #include <iostream>
+using namespace std;
 
 class Criterio{
     private:
@@ -9,8 +10,8 @@ class Criterio{
         string nombreCriterio;
         float ponderadoCriterios;
     public:
-        Criterios();
-        Criterios(int cantidadCriterios, string nombreCriterio, int idCriterio, float ponderadoCriterios);
+        Criterio();
+        Criterio(int, string , int , float);
         void crearListaDeCriterios();
 };
 

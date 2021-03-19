@@ -1,16 +1,11 @@
-#include <iostream>
 #include "criterio.h"
-using namespace std;
 
-Criterios::Criterios(){
+Criterio::Criterio(){
 }
 
-Criterios::Criterios(int cantidadCriterios, int idCriterio, string nombreCriterio, float ponderadoCriterios){
+Criterio::Criterio(int cantidadCriterios, string nombreCriterio, int idCriterio, float ponderadoCriterios){
     this->cantidadCriterios = cantidadCriterios;
-    this->idCriterio = idCriterio;
     this->nombreCriterio = nombreCriterio;
+    this->idCriterio = idCriterio;
     this->ponderadoCriterios = ponderadoCriterios;
 }
-
-void crearListaDeCriterios(){
-};

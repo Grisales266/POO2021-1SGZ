@@ -1,7 +1,8 @@
 #ifndef DETALLEACTA_H
 #define DETALLEACTA_H
 #include "criterio.h"
-#include "detalleActa.h"
+#include <iostream>
+using namespace std;
 
 class DetalleActa{
     private:
