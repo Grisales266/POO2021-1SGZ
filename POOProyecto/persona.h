@@ -14,6 +14,8 @@ class Persona{
         Persona(string, int, string, int);
         int getId();
         void mostrarPersona();
+        string getNombrePersona();
+        void diligenciarCalificacionesJurado1();
 };
 
 #endif

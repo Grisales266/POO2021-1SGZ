@@ -8,7 +8,8 @@ Universidad::Universidad(list<Persona> listaDePersonas, list<Acta> listaDeActas)
     this->listaDePersonas = listaDePersonas;
 }
 
-void Universidad::crearActa(){
+void Universidad::crearActa()
+{
     TipoDeTrabajo tipoDeTrabajo;
     int existenciaCodirector, idActa, idAutor, idDirector, idCodirector, idJurado1, idJurado2, tipoDeTrabajoU;
     string fechaU, nombreTrabajoU;
@@ -17,11 +18,15 @@ void Universidad::crearActa(){
     cin >> fechaU;
     cout << "Ingrese el numero id de acta: ";
     cin >> idActa;
+    if(comprobarExistenciaActa(idActa) == 1){
+        cout << "El acta ya existe.\n";
+        return ;
+    }
     cout << "Ingrese el id del autor: ";
     cin >> idAutor;
+    autorTemporal = buscarPersona(idAutor);
     cout << "Ingrese el nombre del trabajo: ";
     cin >> nombreTrabajoU;
-    autorTemporal = buscarPersona(idAutor);
     cout << "1.Industria.\n2.Investigacion.\nCual es el tipo de trabajo?: ";
     cin >> tipoDeTrabajoU;
     if(tipoDeTrabajoU == 1){
@@ -51,10 +56,11 @@ void Universidad::crearActa(){
     cin >> idJurado2;
     jurado2Temporal = buscarPersona(idJurado2);
     this->listaDeActas.push_back(Acta(fechaU, idActa, autorTemporal, nombreTrabajoU, tipoDeTrabajo, directorTemporal, codirectorTemporal, jurado1Temporal, jurado2Temporal));
-    cout << "Acta de grado creada con exito";
+    cout << "Acta de grado creada con exito.\n";
 }
 
-void Universidad::crearPersona(){
+void Universidad::crearPersona()
+{
     string nombreU, emailU;
     int idU, rolU;
     cout << "Ingrese el nombre de la persona: ";
@@ -75,7 +81,8 @@ void Universidad::crearPersona(){
     cout << "Persona creada con exito.\n";
 }
 
-int Universidad::comprobarExistenciaPersona(int id){
+int Universidad::comprobarExistenciaPersona(int id)
+{
     for(list<Persona>::iterator it = listaDePersonas.begin(); it != listaDePersonas.end(); it++)
     {
         if(it->getId() == id)
@@ -86,10 +93,34 @@ int Universidad::comprobarExistenciaPersona(int id){
     return 0;
 }
 
-Persona Universidad::buscarPersona(int id){
+int Universidad::comprobarExistenciaActa(int idActa)
+{
+    for(list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
+    {
+        if(it->getIdActa() == idActa)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+Persona Universidad::buscarPersona(int id)
+{
     for(list<Persona>::iterator it = listaDePersonas.begin(); it != listaDePersonas.end(); it++)
     {
         if(it->getId() == id)
+        {
+            return *it;
+        }
+    }
+}
+
+Acta Universidad::buscarActa(int idActa)
+{
+    for(list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
+    {
+        if(it->getIdActa() == idActa)
         {
             return *it;
         }
@@ -112,3 +143,7 @@ void Universidad::mostrarTodasActa()
     }
 }
 
+void Universidad::introducirCalificaciones()
+{
+
+}

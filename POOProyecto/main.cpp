@@ -9,7 +9,7 @@ int main(){
 	Universidad javeriana;
     cout << "Bienvenido al menu del programa.\n";
 	do{
-		cout << "1.Crear personas.\n2.Crear actas de grado.\n3.Vacio.\nOpcion: ";
+		cout << "1.Crear personas.\n2.Crear actas de grado.\n3.Mostrar personas.\n4.Mostrar actas.\n5.Diligenciar calificaciones.\nOpcion: ";
 		cin >> opcion;
 		switch(opcion){
 			case 1:
@@ -27,9 +27,12 @@ int main(){
 				cout << "Ha elegido imprimir las actas de grado.\n";
 				javeriana.mostrarTodasActa();
 			case 5:
+				cout << "Ha escogido diligenciar calificaciones.\n";
+				javeriana.introducirCalificaciones();
+			case 6:
 				cout << "Gracias por usar nuestro programa.\n";
 		}
-	}while(opcion != 5);
+	}while(opcion != 6);
 	return 0;
 }
 

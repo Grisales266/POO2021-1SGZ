@@ -17,13 +17,22 @@ Acta::Acta(string fecha, int numeroId, Persona autor, string nombreTrabajo, Tipo
 
 void Acta::mostrarActa(){
     cout << "==================" << endl;
-    cout << "Fecha: " << this->fecha << "." endl;
-    cout << "Id acta: " << this->numeroId << "." endl;
-    cout << "Autor: " << this->autor << "." endl;
-    cout << "Nombre de trabajo: " << this->nombreTrabajo << "." endl;
-    cout << "Tipo de producto: " << this->tipoDeTrabajo << "." << endl;
-    cout << "Director: " << this->director << "." endl;
-    cout << "Codirector: " << this->codirector << "." endl;
-    cout << "Jurado 1: " << this->jurado1 << "." endl;
-    cout << "Jurado 2: " << this->jurado2 << "." << endl;
+    cout << "Fecha: " << this->fecha << endl;
+    cout << "Id acta: " << this->numeroId << endl;
+    cout << "Autor: " << endl;
+    autor.mostrarPersona();
+    cout << "Nombre de trabajo: " << this->nombreTrabajo << endl;
+    cout << "Tipo de producto: " << this->tipoDeTrabajo << endl;
+    cout << "Director: " << endl;
+    director.mostrarPersona();
+    cout << "Codirector: " << endl;
+    codirector.mostrarPersona();                
+    cout << "Jurado 1: " << endl;
+    jurado1.mostrarPersona();
+    cout << "Jurado 2: " << endl;
+    jurado2.mostrarPersona();
+}
+
+int Acta::getIdActa(){
+    return this->numeroId;
 }
