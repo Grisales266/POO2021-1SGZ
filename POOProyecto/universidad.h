@@ -22,7 +22,8 @@ class Universidad{
         Acta buscarActa(int);
         int comprobarExistenciaActa(int);
         void mostrarTodasActa();
-        void introducirCalificaciones();
+        //void introducirCalificaciones();
+        void consultarTipoDeTrabajo();
 };
 
 

@@ -36,3 +36,8 @@ void Acta::mostrarActa(){
 int Acta::getIdActa(){
     return this->numeroId;
 }
+
+TipoDeTrabajo Acta::getTipoDeTrabajo()
+{
+    return this->tipoDeTrabajo;
+}

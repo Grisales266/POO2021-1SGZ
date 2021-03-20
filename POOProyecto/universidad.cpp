@@ -143,7 +143,7 @@ void Universidad::mostrarTodasActa()
     }
 }
 
-void Universidad::introducirCalificaciones()
+/*void Universidad::introducirCalificaciones()
 {
     for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
     {
@@ -152,4 +152,28 @@ void Universidad::introducirCalificaciones()
             diligenciarCalificaciones();
         }
     }
+}
+*/
+void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo es de tipo Industria o Investigacion
+{
+    int acumuladorTrabajosDeTipoA = 0, acumuladorTrabajosDeTipoB = 0;
+
+    cout<<"Id actas trabajo de Tipo A"<<endl;
+    for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)//Para hallar de tipo A
+        if(itActas->getTipoDeTrabajo() == industrial )//TODO Asignar condicion de busqueda
+        {
+            cout<< itActas->getIdActa()<<endl;
+            acumuladorTrabajosDeTipoA += 1;
+        }
+
+    cout<<"Id actas trabajo de Tipo B"<<endl;
+    for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)//Para hallar de tipo B
+        if(itActas->getTipoDeTrabajo() == investigacion )//TODO Asignar condicion de busqueda
+        {
+            cout<< itActas->getIdActa()<<endl;
+            acumuladorTrabajosDeTipoA += 1;
+        }
+    cout<<"Existen "<<acumuladorTrabajosDeTipoA<<" trabajos de tipo A"<<endl;
+    cout<<"Existen "<<acumuladorTrabajosDeTipoB<<" trabajos de tipo B"<<endl;
+
 }
