@@ -26,6 +26,10 @@ string Persona::getNombrePersona(){
     return this->nombre;
 }
 
+int Persona::getrol(){
+    return this->rol;
+}
+
 /*void Persona::diligenciarCalificacionesJurado1(){
     int idActaTemporal;
     cout << "Ingrese el id del acta a calificar: ";

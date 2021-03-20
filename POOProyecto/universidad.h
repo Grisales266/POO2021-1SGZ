@@ -28,6 +28,7 @@ class Universidad{
         //void introducirCalificaciones();
         void consultarTipoDeTrabajo();
         string obtenerFechaSistema();
+        //void consultarActasPorEstados();
 };
 
 

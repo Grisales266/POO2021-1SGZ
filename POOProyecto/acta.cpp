@@ -41,3 +41,7 @@ TipoDeTrabajo Acta::getTipoDeTrabajo()
 {
     return this->tipoDeTrabajo;
 }
+EstadoActa Acta::getEstadoActa()
+{
+    return this->estadoActa;
+}

@@ -35,6 +35,7 @@ class Acta{
         Acta(string, int, Persona, string, TipoDeTrabajo, Persona, Persona, Persona, Persona);
         void mostrarActa();
         int getIdActa();
+        EstadoActa getEstadoActa();
         TipoDeTrabajo getTipoDeTrabajo();
         
 };

@@ -14,14 +14,8 @@ void Universidad::crearActa()
     int existenciaCodirector, idActa, idAutor, idDirector, idCodirector, idJurado1, idJurado2, tipoDeTrabajoU;
     string fechaU, nombreTrabajoU;
     Persona autorTemporal, directorTemporal, codirectorTemporal, jurado1Temporal, jurado2Temporal;
-<<<<<<< HEAD
-    cout << "Ingrese la fecha del acta de grado: ";
-    cin.ignore();
-    getline(cin, fechaU);
-=======
     fechaU = obtenerFechaSistema();
     cout << fechaU <<endl;
->>>>>>> ee562a75442b05c5caf8726cec7f60da1ba73c60
     cout << "Ingrese el numero id de acta: ";
     cin >> idActa;
     if(comprobarExistenciaActa(idActa) == 1){
@@ -195,5 +189,26 @@ string Universidad::obtenerFechaSistema()
     strftime(buf,sizeof(buf),"%y-%m-%d",&tstruct);
     return buf;//Devuelve la fecha de sistema en formato "DD-MM-AA"
 
-
 }
+
+/*void Universidad::consultarTipoDeTrabajo()
+{
+    int condicion = 0;
+    while(condicion != 1 || condicion !=2)
+    {
+        cout<<"Marque el numero correspondiente al tipo de actas que de desea consultar: \n1.Abiertas \n2.Cerrada\n--------->:";
+        cin>>condicion;
+        if( condicion != 1 || condicion !=2 )
+        {
+            cout<<"Opcion no valida, trate de nuevo."
+        }
+    }
+    for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++ )//Para recorrer la lista de actas
+    {
+
+
+    }
+
+
+}*/
+//TODO Terminar metodo para encontrar abiertas y cerradas
