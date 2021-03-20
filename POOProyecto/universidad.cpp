@@ -36,6 +36,8 @@ void Universidad::crearActa()
     else{
         tipoDeTrabajo = investigacion;
     }
+    cout << "Cuantos criterios tendra presente para calificar?: ";
+    cin >> criteriosActa;
     cout << "Ingrese el id del director: ";
     cin >> idDirector;
     directorTemporal = buscarPersona(idDirector);
@@ -180,13 +182,17 @@ void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo 
 
 }
 
+void Universidad::crearCriterio(){
+
+}
+
 string Universidad::obtenerFechaSistema()
 {
     time_t      now = time(0);
     struct tm tstruct;
     char        buf[80];
     tstruct = *localtime(&now);
-    strftime(buf,sizeof(buf),"%y-%m-%d",&tstruct);
+    strftime(buf,sizeof(buf),"%d-%m-%y",&tstruct);
     return buf;//Devuelve la fecha de sistema en formato "DD-MM-AA"
 
 }

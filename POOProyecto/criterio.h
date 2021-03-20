@@ -5,14 +5,12 @@ using namespace std;
 
 class Criterio{
     private:
-        int cantidadCriterios;
-        int idCriterio;
+        int numeroCriterio;
         string nombreCriterio;
         float ponderadoCriterios;
     public:
         Criterio();
         Criterio(int, string , int , float);
-        void crearListaDeCriterios();
 };
 
 #endif

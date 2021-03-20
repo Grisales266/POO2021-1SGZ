@@ -15,11 +15,21 @@ int Persona::getId(){
 }
 
 void Persona::mostrarPersona(){
+    string rolTemporal;
     cout << "|===============================| \n";
     cout << " Nombre: " << this->nombre << endl;
     cout << " Id: " << this->id << endl;
     cout << " email: " << this->email << endl;
-    cout << " rol: " << this->rol << endl;
+    if(this->rol == 1){
+        rolTemporal = "Director";
+    }
+    else if(this->rol == 2){
+        rolTemporal = "Codirector";
+    }
+    else if(this->rol == 3 || this->rol == 4){
+        rolTemporal = "Jurado";
+    }
+    cout << " rol: " << rolTemporal << endl;
 }
 
 string Persona::getNombrePersona(){
