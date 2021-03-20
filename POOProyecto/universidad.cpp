@@ -145,5 +145,11 @@ void Universidad::mostrarTodasActa()
 
 void Universidad::introducirCalificaciones()
 {
-
+    for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
+    {
+        for (list<Persona>::iterator it = listaDePersonas.begin(); it != listaDePersonas.end(); it++)
+        {
+            diligenciarCalificaciones();
+        }
+    }
 }
