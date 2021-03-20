@@ -14,8 +14,8 @@ void Universidad::crearActa()
     int existenciaCodirector, idActa, idAutor, idDirector, idCodirector, idJurado1, idJurado2, tipoDeTrabajoU;
     string fechaU, nombreTrabajoU;
     Persona autorTemporal, directorTemporal, codirectorTemporal, jurado1Temporal, jurado2Temporal;
-    cout << "Ingrese la fecha del acta de grado: ";
-    cin >> fechaU;
+    fechaU = obtenerFechaSistema();
+    cout << fechaU <<endl;
     cout << "Ingrese el numero id de acta: ";
     cin >> idActa;
     if(comprobarExistenciaActa(idActa) == 1){
@@ -171,9 +171,21 @@ void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo 
         if(itActas->getTipoDeTrabajo() == investigacion )//TODO Asignar condicion de busqueda
         {
             cout<< itActas->getIdActa()<<endl;
-            acumuladorTrabajosDeTipoA += 1;
+            acumuladorTrabajosDeTipoB += 1;
         }
     cout<<"Existen "<<acumuladorTrabajosDeTipoA<<" trabajos de tipo A"<<endl;
     cout<<"Existen "<<acumuladorTrabajosDeTipoB<<" trabajos de tipo B"<<endl;
+
+}
+
+string Universidad::obtenerFechaSistema()
+{
+    time_t      now = time(0);
+    struct tm tstruct;
+    char        buf[80];
+    tstruct = *localtime(&now);
+    strftime(buf,sizeof(buf),"%y-%m-%d",&tstruct);
+    return buf;//Devuelve la fecha de sistema en formato "DD-MM-AA"
+
 
 }

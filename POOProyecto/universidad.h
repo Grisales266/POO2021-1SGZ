@@ -4,6 +4,9 @@
 #include "persona.h"
 #include "detalleActa.h"
 #include <iostream>
+#include<stdio.h>
+#include<time.h>//Usado para obtener fecha del sistema
+#include<string>
 using namespace std;
 
 
@@ -24,6 +27,7 @@ class Universidad{
         void mostrarTodasActa();
         //void introducirCalificaciones();
         void consultarTipoDeTrabajo();
+        string obtenerFechaSistema();
 };
 
 
