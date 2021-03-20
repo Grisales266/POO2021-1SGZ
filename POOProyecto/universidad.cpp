@@ -15,7 +15,8 @@ void Universidad::crearActa()
     string fechaU, nombreTrabajoU;
     Persona autorTemporal, directorTemporal, codirectorTemporal, jurado1Temporal, jurado2Temporal;
     cout << "Ingrese la fecha del acta de grado: ";
-    cin >> fechaU;
+    cin.ignore();
+    getline(cin, fechaU);
     cout << "Ingrese el numero id de acta: ";
     cin >> idActa;
     if(comprobarExistenciaActa(idActa) == 1){
@@ -26,7 +27,8 @@ void Universidad::crearActa()
     cin >> idAutor;
     autorTemporal = buscarPersona(idAutor);
     cout << "Ingrese el nombre del trabajo: ";
-    cin >> nombreTrabajoU;
+    cin.ignore();
+    getline(cin, nombreTrabajoU);
     cout << "1.Industria.\n2.Investigacion.\nCual es el tipo de trabajo?: ";
     cin >> tipoDeTrabajoU;
     if(tipoDeTrabajoU == 1){
@@ -157,8 +159,7 @@ void Universidad::mostrarTodasActa()
 void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo es de tipo Industria o Investigacion
 {
     int acumuladorTrabajosDeTipoA = 0, acumuladorTrabajosDeTipoB = 0;
-
-    cout<<"Id actas trabajo de Tipo A"<<endl;
+    cout<<"Id's actas trabajo de tipo Industria: "<<endl;
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)//Para hallar de tipo A
         if(itActas->getTipoDeTrabajo() == industrial )//TODO Asignar condicion de busqueda
         {
@@ -166,14 +167,16 @@ void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo 
             acumuladorTrabajosDeTipoA += 1;
         }
 
-    cout<<"Id actas trabajo de Tipo B"<<endl;
+    cout<<"Id's actas trabajo de tipo Investigacion: "<<endl;
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)//Para hallar de tipo B
         if(itActas->getTipoDeTrabajo() == investigacion )//TODO Asignar condicion de busqueda
         {
             cout<< itActas->getIdActa()<<endl;
-            acumuladorTrabajosDeTipoA += 1;
+            acumuladorTrabajosDeTipoB += 1;
         }
-    cout<<"Existen "<<acumuladorTrabajosDeTipoA<<" trabajos de tipo A"<<endl;
-    cout<<"Existen "<<acumuladorTrabajosDeTipoB<<" trabajos de tipo B"<<endl;
+    cout << "\n=========================";
+    cout << "Existen "<<acumuladorTrabajosDeTipoA<<" trabajos de tipo Industria"<<endl;
+    cout << "Existen "<<acumuladorTrabajosDeTipoB<<" trabajos de tipo Investigacion"<<endl;
+    cout << "=========================\n";
 
 }
