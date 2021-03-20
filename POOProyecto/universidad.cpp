@@ -1,7 +1,7 @@
 #include "universidad.h"
 
 Universidad::Universidad(){
-};
+}
 
 Universidad::Universidad(list<Persona> listaDePersonas, list<Acta> listaDeActas){
     this->listaDeActas = listaDeActas;
@@ -17,7 +17,7 @@ void Universidad::crearActa(){
     cin >> fechaU;
     cout << "Ingrese el numero id de acta: ";
     cin >> idActa;
-    cout << "Ingrese el nombre del autor: ";
+    cout << "Ingrese el id del autor: ";
     cin >> idAutor;
     cout << "Ingrese el nombre del trabajo: ";
     cin >> nombreTrabajoU;
@@ -51,6 +51,7 @@ void Universidad::crearActa(){
     cin >> idJurado2;
     jurado2Temporal = buscarPersona(idJurado2);
     this->listaDeActas.push_back(Acta(fechaU, idActa, autorTemporal, nombreTrabajoU, tipoDeTrabajo, directorTemporal, codirectorTemporal, jurado1Temporal, jurado2Temporal));
+    cout << "Acta de grado creada con exito";
 }
 
 void Universidad::crearPersona(){
@@ -61,12 +62,28 @@ void Universidad::crearPersona(){
     getline(cin, nombreU);
     cout << "Ingrese el numero id de la persona: ";
     cin >> idU;
+    if(comprobarExistenciaPersona(idU) == 1){
+        cout << "La persona ya existe.\n";
+        return ;
+    }
     cout << "Ingrese el email de la persona: ";
     cin.ignore();
     getline(cin, emailU);
     cout << "1.Director.\n2.Codirector.\n3.Jurado 1.\n4.Jurado 2.\nCual es el rol de esta persona?: ";
     cin >> rolU;
     this->listaDePersonas.push_back(Persona(nombreU, idU, emailU, rolU));
+    cout << "Persona creada con exito.\n";
+}
+
+int Universidad::comprobarExistenciaPersona(int id){
+    for(list<Persona>::iterator it = listaDePersonas.begin(); it != listaDePersonas.end(); it++)
+    {
+        if(it->getId() == id)
+        {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 Persona Universidad::buscarPersona(int id){
@@ -79,4 +96,19 @@ Persona Universidad::buscarPersona(int id){
     }
 }
 
+void Universidad::mostrarTodosPersona()
+{
+    for (list<Persona>::iterator it = listaDePersonas.begin(); it != listaDePersonas.end(); it++)
+    {
+        it->mostrarPersona();
+    }
+}
+
+void Universidad::mostrarTodasActa()
+{
+    for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
+    {
+        it->mostrarActa();
+    }
+}
 

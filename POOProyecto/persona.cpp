@@ -14,3 +14,10 @@ int Persona::getId(){
     return this->id;
 }
 
+void Persona::mostrarPersona(){
+    cout << "|===============================| \n";
+    cout << " Nombre: " << this->nombre << endl;
+    cout << " Id: " << this->id << endl;
+    cout << " email: " << this->email << endl;
+    cout << " rol: " << this->rol << endl;
+}

@@ -13,6 +13,7 @@ class Persona{
         Persona();
         Persona(string, int, string, int);
         int getId();
+        void mostrarPersona();
 };
 
 #endif

@@ -15,3 +15,15 @@ Acta::Acta(string fecha, int numeroId, Persona autor, string nombreTrabajo, Tipo
     this->jurado2 = jurado2;
 }
 
+void Acta::mostrarActa(){
+    cout << "==================" << endl;
+    cout << "Fecha: " << this->fecha << "." endl;
+    cout << "Id acta: " << this->numeroId << "." endl;
+    cout << "Autor: " << this->autor << "." endl;
+    cout << "Nombre de trabajo: " << this->nombreTrabajo << "." endl;
+    cout << "Tipo de producto: " << this->tipoDeTrabajo << "." << endl;
+    cout << "Director: " << this->director << "." endl;
+    cout << "Codirector: " << this->codirector << "." endl;
+    cout << "Jurado 1: " << this->jurado1 << "." endl;
+    cout << "Jurado 2: " << this->jurado2 << "." << endl;
+}

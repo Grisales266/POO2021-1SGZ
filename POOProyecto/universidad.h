@@ -13,12 +13,13 @@ class Universidad{
     public:
         Universidad();
         Universidad(list<Persona>, list<Acta>);
-        Persona buscarPersona(int);
-        void getIdTemporal(Persona);
-        void crearActa();
         void crearPersona();
-        void crearListaActasDeGrado();
-        void crearListaDePersonas();
+        Persona buscarPersona(int);
+        int comprobarExistenciaPersona(int);
+        void mostrarTodosPersona();
+        void crearActa();
+        void mostrarTodasActa();
 };
+
 
 #endif

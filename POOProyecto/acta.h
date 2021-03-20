@@ -33,6 +33,7 @@ class Acta{
     public:
         Acta();
         Acta(string, int, Persona, string, TipoDeTrabajo, Persona, Persona, Persona, Persona);
+        void mostrarActa();
         
 };
 
