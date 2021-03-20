@@ -14,9 +14,10 @@ class Universidad{
     private:
         list<Persona> listaDePersonas;
         list<Acta> listaDeActas;
+        list<Criterio> crearListaDeCriterios;
     public:
         Universidad();
-        Universidad(list<Persona>, list<Acta>);
+        Universidad(list<Persona>, list<Acta>, list<Criterio>);
         void crearPersona();
         Persona buscarPersona(int);
         int comprobarExistenciaPersona(int);
@@ -25,6 +26,7 @@ class Universidad{
         Acta buscarActa(int);
         int comprobarExistenciaActa(int);
         void mostrarTodasActa();
+        void crearCriterio();
         //void introducirCalificaciones();
         void consultarTipoDeTrabajo();
         string obtenerFechaSistema();
