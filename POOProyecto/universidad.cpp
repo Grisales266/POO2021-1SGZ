@@ -218,16 +218,42 @@ string Universidad::obtenerFechaSistema()
 
 }
 
+void Universidad::consultarTrabajosDeUnDirector()
+{
+    int idProfesorBuscado;
+    cout<<"Ingrese el ID del profesor consultado";
+    cin>>idProfesorBuscado;
+    for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end(); itActas++)
+    {
+        if(itActas->getIdDirector() == idProfesorBuscado && itActas->getRolDirector() == 1)
+        {
+            cout<<itActas->getIdActa()<<endl;
+        }
+    }
+}
+
 void Universidad::consultarTrabajosDeUnJurado()
 {
     int idJuradoBuscado;
-    cout<<"Ingrese el ID del profesor consultado: "<<endl;
+    cout<<"Ingrese el ID del jurado consultado: "<<endl;
     cin>>idProfesorBuscado;
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)
     {
-        if(itActas->getIdJurado1() == idJuradoBuscado || itActas->getIdJurado2() == idJuradoBuscado && itActas->getRolJurado1() == 3 || itActas->getRolJurado1()== 4 || itActas->getRolJurado2() == 3 || itActas->getRolJurado2()== 4 )
+        if(itActas->getIdJurado1() == idJuradoBuscado || itActas->getIdJurado2() == idJuradoBuscado && itActas->getRolJurado1() == 3 ||  itActas->getRolJurado2() == 3  )
         {
             cout<<itActas->getIdActa()<<endl;
+        }
+    }
+}
+
+void Universidad::consultarListaJuradosDeActasRegistradas()
+{
+    for(list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end();itPersonas++)
+    {
+        if(itPersonas->getRolPersona() ==3 )
+        {
+            itPersonas->mostrarPersona();
+            cout<<"------------------------------------------------"<<endl;
         }
     }
 }

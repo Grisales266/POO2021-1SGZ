@@ -33,6 +33,33 @@ void Acta::mostrarActa(){
     cout << jurado2.getNombrePersona() << endl;
     
 }
+int Acta::getRolDirector()
+{
+    return this->director.getRolPersona();
+}
+int Acta::getIdDirector()
+{
+    return this->director.getId();
+}
+
+int Acta::getIdJurado1()
+{
+    return this->jurado1.getId();
+}
+
+int Acta::getIdJurado2()
+{
+    return this->jurado2.getId();
+}
+
+int Acta::getRolJurado1()
+{
+    return this->jurado1.getRolPersona();
+}
+int Acta::getRolJurado2()
+{
+    return this->jurado2.getRolPersona();
+}
 
 int Acta::getIdActa(){
     return this->numeroId;

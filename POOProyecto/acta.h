@@ -40,6 +40,9 @@ class Acta{
         int getIdJurado2();
         int getRolJurado1();
         int getRolJurado2();
+        int getIdDirector();
+        int getRolDirector();
+        int getRolActa();
         EstadoActa getEstadoActa();
         TipoDeTrabajo getTipoDeTrabajo();
         void crearCriterios();

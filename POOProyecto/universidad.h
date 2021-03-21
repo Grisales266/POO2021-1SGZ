@@ -29,7 +29,9 @@ class Universidad{
         //void introducirCalificaciones();
         void consultarTipoDeTrabajo();
         string obtenerFechaSistema();
+        void consultarTrabajosDeUnDirector();//Trabajos que ha dirigido un profesor
         void consultarTrabajosDeUnJurado();
+        void consultarListaJuradosDeActasRegistradas();
         //void consultarActasPorEstados();
 };
 
