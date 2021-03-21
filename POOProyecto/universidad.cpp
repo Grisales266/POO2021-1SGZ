@@ -15,7 +15,7 @@ void Universidad::crearActa()
     string fechaU, nombreTrabajoU;
     Persona autorTemporal, directorTemporal, codirectorTemporal, jurado1Temporal, jurado2Temporal;
     fechaU = obtenerFechaSistema();
-    cout << fechaU <<endl;
+    cout << "Fecha: " << fechaU << endl;
     cout << "Ingrese el numero id de acta: ";
     cin >> idActa;
     if(comprobarExistenciaActa(idActa) == 1){
@@ -66,7 +66,9 @@ void Universidad::crearActa()
     cin >> idJurado2;
     jurado2Temporal = buscarPersona(idJurado2);
     this->listaDeActas.push_back(Acta(fechaU, idActa, autorTemporal, nombreTrabajoU, tipoDeTrabajo, directorTemporal, codirectorTemporal, jurado1Temporal, jurado2Temporal, cantidadCriterios));
+    cout << "\n==============================\n";
     cout << "Acta de grado creada con exito.\n";
+    cout << "==============================\n";
 }
 
 void Universidad::crearPersona()
@@ -88,7 +90,9 @@ void Universidad::crearPersona()
     cout << "1.Director.\n2.Codirector.\n3.Jurado.\n4.Estudiante.\nCual es el rol de esta persona?: ";
     cin >> rolU;
     this->listaDePersonas.push_back(Persona(nombreU, idU, emailU, rolU));
+    cout << "\n==============================\n";
     cout << "Persona creada con exito.\n";
+    cout << "==============================\n";
 }
 
 int Universidad::comprobarExistenciaPersona(int id)
@@ -171,7 +175,7 @@ void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo 
             cout<< itActas->getIdActa()<<endl;
             acumuladorTrabajosDeTipoB += 1;
         }
-    cout << "\n=========================";
+    cout << "\n=========================\n";
     cout << "Existen "<<acumuladorTrabajosDeTipoA<<" trabajos de tipo Industria"<<endl;
     cout << "Existen "<<acumuladorTrabajosDeTipoB<<" trabajos de tipo Investigacion"<<endl;
     cout << "=========================\n";
@@ -184,7 +188,9 @@ void Universidad::crearCriterio(){
     cout << "Digite el id del acta donde pondra los criterios";
     cin >> idTemporal;
     if(comprobarExistenciaActa(idTemporal) != 1){
+        cout << "\n=========================\n";
         cout << "El acta no existe.\n";
+        cout << "=========================\n";
         return ;
     }
     for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
@@ -193,19 +199,10 @@ void Universidad::crearCriterio(){
             it->crearCriterios();
         }
     }
+    cout << "\n==============================\n";
+    cout << "Criterios creados con exito.\n";
+    cout << "==============================\n";
 }
-
-/*void Universidad::introducirCalificaciones()
-{
-    for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
-    {
-        for (list<Persona>::iterator it = listaDePersonas.begin(); it != listaDePersonas.end(); it++)
-        {
-            diligenciarCalificaciones();
-        }
-    }
-}
-*/
 
 string Universidad::obtenerFechaSistema()
 {
@@ -221,8 +218,8 @@ string Universidad::obtenerFechaSistema()
 void Universidad::consultarTrabajosDeUnDirector()
 {
     int idProfesorBuscado;
-    cout<<"Ingrese el ID del profesor consultado";
-    cin>>idProfesorBuscado;
+    cout << "Ingrese el ID del profesor consultado";
+    cin >> idProfesorBuscado;
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end(); itActas++)
     {
         if(itActas->getIdDirector() == idProfesorBuscado && itActas->getRolDirector() == 1)
@@ -230,13 +227,16 @@ void Universidad::consultarTrabajosDeUnDirector()
             cout<<itActas->getIdActa()<<endl;
         }
     }
+    cout << "\n==============================\n";
+    cout << "Operacion realizada con exito.\n";
+    cout << "==============================\n";
 }
 
 void Universidad::consultarTrabajosDeUnJurado()
 {
     int idJuradoBuscado;
-    cout<<"Ingrese el ID del jurado consultado: "<<endl;
-    cin>>idProfesorBuscado;
+    cout << "Ingrese el ID del jurado consultado: "<<endl;
+    cin >> idJuradoBuscado;
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)
     {
         if(itActas->getIdJurado1() == idJuradoBuscado || itActas->getIdJurado2() == idJuradoBuscado && itActas->getRolJurado1() == 3 ||  itActas->getRolJurado2() == 3  )
@@ -244,38 +244,43 @@ void Universidad::consultarTrabajosDeUnJurado()
             cout<<itActas->getIdActa()<<endl;
         }
     }
+    cout << "\n==============================\n";
+    cout << "Operacion realizada con exito.\n";
+    cout << "==============================\n";
 }
 
 void Universidad::consultarListaJuradosDeActasRegistradas()
 {
     for(list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end();itPersonas++)
     {
-        if(itPersonas->getRolPersona() ==3 )
+        if(itPersonas->getRolPersona() == 3 )
         {
             itPersonas->mostrarPersona();
             cout<<"------------------------------------------------"<<endl;
         }
     }
+    cout << "\n==============================\n";
+    cout << "Operacion realizada con exito.\n";
+    cout << "==============================\n";
 }
 
-/*void Universidad::consultarTipoDeTrabajo()
+void Universidad::mostrarTodasDetalleActa()
 {
-    int condicion = 0;
-    while(condicion != 1 || condicion !=2)
+    int idActa;
+    cout << "Ingrese el Id del acta que quiere saber los criterios: \n";
+    cin >> idActa;
+    if(comprobarExistenciaActa(idActa) != 1)
+            {
+                cout << "El acta no existe.\n";
+                return ;
+            }
+    for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
     {
-        cout<<"Marque el numero correspondiente al tipo de actas que de desea consultar: \n1.Abiertas \n2.Cerrada\n--------->:";
-        cin>>condicion;
-        if( condicion != 1 || condicion !=2 )
-        {
-            cout<<"Opcion no valida, trate de nuevo."
+        if(it->getIdActa() == idActa){
+            it->mostrarDetallesDeActa();
         }
     }
-    for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++ )//Para recorrer la lista de actas
-    {
-
-
-    }
-
-
-}*/
-//TODO Terminar metodo para encontrar abiertas y cerradas
+    cout << "\n==============================\n";
+    cout << "Operacion realizada con exito.\n";
+    cout << "==============================\n";
+}

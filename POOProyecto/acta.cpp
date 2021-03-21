@@ -69,7 +69,6 @@ TipoDeTrabajo Acta::getTipoDeTrabajo()
 {
     return this->tipoDeTrabajo;
 }
-<<<<<<< HEAD
 
 void Acta::crearCriterios(){
     int x;
@@ -82,20 +81,27 @@ void Acta::crearCriterios(){
         cout << "Cual es el ponderado de este criterio?: ";
         cin >> ponderadoU;
         Criterio criterioTemporal(criterioU, x, ponderadoU);
-        cout << "Cual es el la nota del jurado 1 para el criterio" << x << ": ";
+        cout << "Cual es el la nota del jurado 1 para el criterio " << x << ": ";
         cin >> notaJurado1;
-        cout << "Cual es el la nota del jurado 2 para el criterio" << x << ": ";
+        cout << "Cual es el la nota del jurado 2 para el criterio " << x << ": ";
         cin >> notaJurado2;
-        cout << "Cual es el comentario de los jurados para el criterio" << x << ": ";
+        cout << "Cual es el comentario de los jurados para el criterio " << x << ": ";
         cin.ignore();
         getline(cin, comentarioJurado);
         notaPonderada = (((notaJurado1 + notaJurado2) / 2) * ponderadoU);
         notaPromedio = ((notaJurado1 + notaJurado2) / 2);
         this->listaDetallesActa.push_back(DetalleActa(criterioTemporal, notaJurado1, notaJurado2, comentarioJurado, notaPonderada, notaPromedio));
     }
-=======
+}
+
 EstadoActa Acta::getEstadoActa()
 {
     return this->estadoActa;
->>>>>>> 23d9d01e65cc764e23507fd5f99a202c5ac1ac67
+}
+
+void Acta::mostrarDetallesDeActa(){
+    for(list<DetalleActa>::iterator itActas = listaDetallesActa.begin(); itActas != listaDetallesActa.end(); itActas++)
+        {
+            itActas->mostrarDetallesDeActa();
+        }
 }

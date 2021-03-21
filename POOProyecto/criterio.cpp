@@ -9,3 +9,8 @@ Criterio::Criterio (string nombreCriterio, int idCriterio, float ponderadoCriter
     this->ponderadoCriterios = ponderadoCriterios;
 }
 
+void Criterio::mostrarCriterio(){
+    cout << "Numero de criterio: " << this->numeroCriterio << endl;
+    cout << "Descripcion de criterio " << this->numeroCriterio <<  ": " << this->nombreCriterio << endl;
+    cout << "Ponderado de criterio " << this->numeroCriterio <<  ": "  << this->ponderadoCriterios << "%" << endl;
+}

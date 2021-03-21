@@ -11,6 +11,7 @@ class Criterio{
     public:
         Criterio();
         Criterio(string, int, float);
+        void mostrarCriterio();
 };
 
 #endif

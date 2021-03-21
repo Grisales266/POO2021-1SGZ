@@ -26,12 +26,12 @@ class Universidad{
         int comprobarExistenciaActa(int);
         void mostrarTodasActa();
         void crearCriterio();
-        //void introducirCalificaciones();
         void consultarTipoDeTrabajo();
         string obtenerFechaSistema();
         void consultarTrabajosDeUnDirector();//Trabajos que ha dirigido un profesor
         void consultarTrabajosDeUnJurado();
         void consultarListaJuradosDeActasRegistradas();
+        void mostrarTodasDetalleActa();
         //void consultarActasPorEstados();
 };
 

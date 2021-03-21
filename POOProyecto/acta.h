@@ -46,7 +46,7 @@ class Acta{
         EstadoActa getEstadoActa();
         TipoDeTrabajo getTipoDeTrabajo();
         void crearCriterios();
-        
+        void mostrarDetallesDeActa();
 };
 
 #endif

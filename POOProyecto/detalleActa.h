@@ -15,6 +15,7 @@ class DetalleActa{
     public:
         DetalleActa();
         DetalleActa(Criterio, float, float, string, float, float);
+        void mostrarDetallesDeActa();
 };
 
 #endif

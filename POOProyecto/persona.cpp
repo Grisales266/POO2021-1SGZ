@@ -43,20 +43,3 @@ int Persona::getRolPersona()
 {
     return this->rol;
 }
-
-/*void Persona::diligenciarCalificacionesJurado1(){
-    int idActaTemporal;
-    cout << "Ingrese el id del acta a calificar: ";
-    cin >> idActaTemporal;
-    if(comprobarExistenciaActa(idActaTemporal) != 1){
-        cout << "El acta no existe, por favor creela.\n";
-        return;
-    }
-    if(this->rol == 3){
-        cout << "Digite su nota como jurado 1: ";
-        cin >> notaJurado1;
-    }
-
-}
- */
-//TODO a reoparar
