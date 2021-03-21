@@ -10,7 +10,7 @@ class Criterio{
         float ponderadoCriterios;
     public:
         Criterio();
-        Criterio(int, string , int , float);
+        Criterio(string, int, float);
 };
 
 #endif

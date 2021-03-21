@@ -30,9 +30,10 @@ class Acta{
         Persona jurado2;
         EstadoActa estadoActa = abierto;
         list<DetalleActa>listaDetallesActa;
+        int cantidadCriterios;
     public:
         Acta();
-        Acta(string, int, Persona, string, TipoDeTrabajo, Persona, Persona, Persona, Persona);
+        Acta(string, int, Persona, string, TipoDeTrabajo, Persona, Persona, Persona, Persona, int);
         void mostrarActa();
         int getIdActa();
         int getIdJurado1();
@@ -41,6 +42,7 @@ class Acta{
         int getRolJurado2();
         EstadoActa getEstadoActa();
         TipoDeTrabajo getTipoDeTrabajo();
+        void crearCriterios();
         
 };
 

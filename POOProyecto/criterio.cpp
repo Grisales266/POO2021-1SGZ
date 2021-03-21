@@ -3,9 +3,9 @@
 Criterio::Criterio(){
 }
 
-Criterio::Criterio(int cantidadCriterios, string nombreCriterio, int idCriterio, float ponderadoCriterios){
-    this->cantidadCriterios = cantidadCriterios;
+Criterio::Criterio (string nombreCriterio, int idCriterio, float ponderadoCriterios){
     this->nombreCriterio = nombreCriterio;
-    this->idCriterio = idCriterio;
+    this->numeroCriterio = idCriterio;
     this->ponderadoCriterios = ponderadoCriterios;
 }
+

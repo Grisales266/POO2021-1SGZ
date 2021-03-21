@@ -9,9 +9,9 @@ Universidad::Universidad(list<Persona> listaDePersonas, list<Acta> listaDeActas)
 }
 
 void Universidad::crearActa()
-{
+{   
     TipoDeTrabajo tipoDeTrabajo;
-    int existenciaCodirector, idActa, idAutor, idDirector, idCodirector, idJurado1, idJurado2, tipoDeTrabajoU;
+    int existenciaCodirector, idActa, idAutor, idDirector, idCodirector, idJurado1, idJurado2, tipoDeTrabajoU, respuesta, cantidadCriterios;
     string fechaU, nombreTrabajoU;
     Persona autorTemporal, directorTemporal, codirectorTemporal, jurado1Temporal, jurado2Temporal;
     fechaU = obtenerFechaSistema();
@@ -36,8 +36,15 @@ void Universidad::crearActa()
     else{
         tipoDeTrabajo = investigacion;
     }
-    cout << "Cuantos criterios tendra presente para calificar?: ";
-    cin >> criteriosActa;
+    cout << "1.Si.\n2.No.\nUsara la cantidad de criterios por defecto : ";
+    cin >> respuesta;
+    if(respuesta == 1){
+        cantidadCriterios = 8;
+    }
+    else{
+        cout << "Cuantos criterios tendra el acta: ";
+        cin >> cantidadCriterios;
+    }
     cout << "Ingrese el id del director: ";
     cin >> idDirector;
     directorTemporal = buscarPersona(idDirector);
@@ -58,7 +65,7 @@ void Universidad::crearActa()
     cout << "Ingrese el id del jurado 2: ";
     cin >> idJurado2;
     jurado2Temporal = buscarPersona(idJurado2);
-    this->listaDeActas.push_back(Acta(fechaU, idActa, autorTemporal, nombreTrabajoU, tipoDeTrabajo, directorTemporal, codirectorTemporal, jurado1Temporal, jurado2Temporal));
+    this->listaDeActas.push_back(Acta(fechaU, idActa, autorTemporal, nombreTrabajoU, tipoDeTrabajo, directorTemporal, codirectorTemporal, jurado1Temporal, jurado2Temporal, cantidadCriterios));
     cout << "Acta de grado creada con exito.\n";
 }
 
@@ -78,7 +85,7 @@ void Universidad::crearPersona()
     cout << "Ingrese el email de la persona: ";
     cin.ignore();
     getline(cin, emailU);
-    cout << "1.Director.\n2.Codirector.\n3.Jurado 1.\n4.Jurado 2.\nCual es el rol de esta persona?: ";
+    cout << "1.Director.\n2.Codirector.\n3.Jurado.\n4.Estudiante.\nCual es el rol de esta persona?: ";
     cin >> rolU;
     this->listaDePersonas.push_back(Persona(nombreU, idU, emailU, rolU));
     cout << "Persona creada con exito.\n";
@@ -146,17 +153,6 @@ void Universidad::mostrarTodasActa()
     }
 }
 
-/*void Universidad::introducirCalificaciones()
-{
-    for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
-    {
-        for (list<Persona>::iterator it = listaDePersonas.begin(); it != listaDePersonas.end(); it++)
-        {
-            diligenciarCalificaciones();
-        }
-    }
-}
-*/
 void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo es de tipo Industria o Investigacion
 {
     int acumuladorTrabajosDeTipoA = 0, acumuladorTrabajosDeTipoB = 0;
@@ -183,8 +179,33 @@ void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo 
 }
 
 void Universidad::crearCriterio(){
-
+    string criterioU;
+    int ponderadoU, idTemporal;
+    cout << "Digite el id del acta donde pondra los criterios";
+    cin >> idTemporal;
+    if(comprobarExistenciaActa(idTemporal) != 1){
+        cout << "El acta no existe.\n";
+        return ;
+    }
+    for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
+    {
+        if(it->getIdActa() == idTemporal){
+            it->crearCriterios();
+        }
+    }
 }
+
+/*void Universidad::introducirCalificaciones()
+{
+    for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
+    {
+        for (list<Persona>::iterator it = listaDePersonas.begin(); it != listaDePersonas.end(); it++)
+        {
+            diligenciarCalificaciones();
+        }
+    }
+}
+*/
 
 string Universidad::obtenerFechaSistema()
 {
