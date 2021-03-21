@@ -9,7 +9,7 @@ int main(){
     Universidad javeriana;
     cout << "Bienvenido al menu del programa.\n";
     do{
-        cout << "1.Crear personas.\n2.Crear actas de grado.\n3.Crear criterios y diligenciar calificaciones.\n4.Mostrar Personas.\n5.Mostrar Actas de grado.\n6.Consultar por tipo de trabajo.\n7.Consultar trabajos donde ha sido director un profesor.\n8.Consultar trabajos en los cuales ha participado un jurado\n9.Consultar lista de jurados que han participado en los trabajos.\nOpcion: ";
+        cout << "1.Crear personas.\n2.Crear actas de grado.\n3.Crear criterios y diligenciar calificaciones.\n4.Mostrar Personas.\n5.Mostrar Actas de grado.\n6.Consultar por tipo de trabajo.\n7.Consultar trabajos donde ha sido director un profesor.\n8.Consultar trabajos en los cuales ha participado un jurado.\n9. Consultar trabajos de un director.\n10.Consultar lista de jurados que han participado en los trabajos.\nOpcion: ";
         cin >> opcion;
         switch(opcion){
             case 1:
@@ -40,13 +40,13 @@ int main(){
                 cout << "\n=========================\n";
                 cout << "Ha elegido mostar las actas de grado.\n";
                 cout << "=========================\n";
-                javeriana.mostrarTodasDetalleActa();
+                javeriana.mostrarTodasActa();
                 break;
             case 6:
                 cout << "\n=========================\n";
                 cout << "Ha elegido mostar los detalles de acta por acta.\n";
                 cout << "=========================\n";
-                javeriana.mostrarTodasActa();
+                javeriana.mostrarTodasDetalleActa();
                 break;
             case 7:
                 cout << "\n=========================\n";
