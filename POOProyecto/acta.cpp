@@ -42,6 +42,7 @@ TipoDeTrabajo Acta::getTipoDeTrabajo()
 {
     return this->tipoDeTrabajo;
 }
+<<<<<<< HEAD
 
 void Acta::crearCriterios(){
     int x;
@@ -65,4 +66,9 @@ void Acta::crearCriterios(){
         notaPromedio = ((notaJurado1 + notaJurado2) / 2);
         this->listaDetallesActa.push_back(DetalleActa(criterioTemporal, notaJurado1, notaJurado2, comentarioJurado, notaPonderada, notaPromedio));
     }
+=======
+EstadoActa Acta::getEstadoActa()
+{
+    return this->estadoActa;
+>>>>>>> 23d9d01e65cc764e23507fd5f99a202c5ac1ac67
 }

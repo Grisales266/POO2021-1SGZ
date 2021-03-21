@@ -13,6 +13,10 @@ const  std::string currentDAteTime(){
 
 }
 int main(){
+    std::string fecha;
     std::cout<<"Fecha actual del sistema:"<<currentDAteTime()<<std::endl;
+    fecha = currentDAteTime();
+    std::cout<<"Esta es la fecha "<<fecha<<std::endl;
+
     getchar();
 }

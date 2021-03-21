@@ -216,5 +216,26 @@ string Universidad::obtenerFechaSistema()
     strftime(buf,sizeof(buf),"%d-%m-%y",&tstruct);
     return buf;//Devuelve la fecha de sistema en formato "DD-MM-AA"
 
-
 }
+
+/*void Universidad::consultarTipoDeTrabajo()
+{
+    int condicion = 0;
+    while(condicion != 1 || condicion !=2)
+    {
+        cout<<"Marque el numero correspondiente al tipo de actas que de desea consultar: \n1.Abiertas \n2.Cerrada\n--------->:";
+        cin>>condicion;
+        if( condicion != 1 || condicion !=2 )
+        {
+            cout<<"Opcion no valida, trate de nuevo."
+        }
+    }
+    for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++ )//Para recorrer la lista de actas
+    {
+
+
+    }
+
+
+}*/
+//TODO Terminar metodo para encontrar abiertas y cerradas

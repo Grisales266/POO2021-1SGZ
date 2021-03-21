@@ -13,8 +13,8 @@ class Persona{
         Persona();
         Persona(string, int, string, int);
         int getId();
+        int getrol();
         void mostrarPersona();
-        string getNombrePersona();
 };
 
 #endif
