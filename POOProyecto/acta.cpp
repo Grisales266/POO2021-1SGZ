@@ -3,7 +3,7 @@
 Acta::Acta(){
 }
 
-Acta::Acta(string fecha, int numeroId, Persona autor, string nombreTrabajo, TipoDeTrabajo tipoDeTrabajo, Persona director, Persona codirector, Persona jurado1, Persona jurado2){
+Acta::Acta(string fecha, int numeroId, Persona autor, string nombreTrabajo, TipoDeTrabajo tipoDeTrabajo, Persona director, Persona codirector, Persona jurado1, Persona jurado2, int cantidadCriterios){
     this->fecha = fecha;
     this->numeroId = numeroId;
     this->autor = autor;
@@ -31,7 +31,7 @@ void Acta::mostrarActa(){
     cout << jurado1.getNombrePersona() << endl;
     cout << "Jurado 2: ";
     cout << jurado2.getNombrePersona() << endl;
-    cout << "==================" << endl;
+    
 }
 
 int Acta::getIdActa(){
@@ -41,4 +41,28 @@ int Acta::getIdActa(){
 TipoDeTrabajo Acta::getTipoDeTrabajo()
 {
     return this->tipoDeTrabajo;
+}
+
+void Acta::crearCriterios(){
+    int x;
+    float ponderadoU, notaJurado1, notaJurado2, notaPonderada, notaPromedio;
+    string criterioU, comentarioJurado;
+    for(x = 1; x <= this->cantidadCriterios; x++){
+        cout << "Cual es la descripcion del criterio?: ";
+        cin.ignore();
+        getline(cin, criterioU);
+        cout << "Cual es el ponderado de este criterio?: ";
+        cin >> ponderadoU;
+        Criterio criterioTemporal(criterioU, x, ponderadoU);
+        cout << "Cual es el la nota del jurado 1 para el criterio" << x << ": ";
+        cin >> notaJurado1;
+        cout << "Cual es el la nota del jurado 2 para el criterio" << x << ": ";
+        cin >> notaJurado2;
+        cout << "Cual es el comentario de los jurados para el criterio" << x << ": ";
+        cin.ignore();
+        getline(cin, comentarioJurado);
+        notaPonderada = (((notaJurado1 + notaJurado2) / 2) * ponderadoU);
+        notaPromedio = ((notaJurado1 + notaJurado2) / 2);
+        this->listaDetallesActa.push_back(DetalleActa(criterioTemporal, notaJurado1, notaJurado2, comentarioJurado, notaPonderada, notaPromedio));
+    }
 }

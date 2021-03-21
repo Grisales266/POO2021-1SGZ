@@ -26,8 +26,11 @@ void Persona::mostrarPersona(){
     else if(this->rol == 2){
         rolTemporal = "Codirector";
     }
-    else if(this->rol == 3 || this->rol == 4){
+    else if(this->rol == 3){
         rolTemporal = "Jurado";
+    }
+    else if(this->rol == 4){
+        rolTemporal = "Estudiante";
     }
     cout << " rol: " << rolTemporal << endl;
 }

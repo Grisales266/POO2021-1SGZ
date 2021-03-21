@@ -14,10 +14,9 @@ class Universidad{
     private:
         list<Persona> listaDePersonas;
         list<Acta> listaDeActas;
-        list<Criterio> crearListaDeCriterios;
     public:
         Universidad();
-        Universidad(list<Persona>, list<Acta>, list<Criterio>);
+        Universidad(list<Persona>, list<Acta>);
         void crearPersona();
         Persona buscarPersona(int);
         int comprobarExistenciaPersona(int);
