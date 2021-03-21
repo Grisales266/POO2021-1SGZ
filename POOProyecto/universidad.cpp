@@ -193,8 +193,22 @@ string Universidad::obtenerFechaSistema()
     char        buf[80];
     tstruct = *localtime(&now);
     strftime(buf,sizeof(buf),"%d-%m-%y",&tstruct);
-    return buf;//Devuelve la fecha de sistema en formato "DD-MM-AA"
+    return buf;//Devuelve la fecha de sistema en formato "AA-MM-DD"
 
+}
+
+void Universidad::consultarTrabajosDeUnJurado()
+{
+    int idJuradoBuscado;
+    cout<<"Ingrese el ID del profesor consultado: "<<endl;
+    cin>>idProfesorBuscado;
+    for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)
+    {
+        if(itActas->getIdJurado1() == idJuradoBuscado || itActas->getIdJurado2() == idJuradoBuscado && itActas->getRolJurado1() == 3 || itActas->getRolJurado1()== 4 || itActas->getRolJurado2() == 3 || itActas->getRolJurado2()== 4 )
+        {
+            cout<<itActas->getIdActa()<<endl;
+        }
+    }
 }
 
 /*void Universidad::consultarTipoDeTrabajo()

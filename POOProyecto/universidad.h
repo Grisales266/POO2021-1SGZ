@@ -30,6 +30,7 @@ class Universidad{
         //void introducirCalificaciones();
         void consultarTipoDeTrabajo();
         string obtenerFechaSistema();
+        void consultarTrabajosDeUnJurado();
         //void consultarActasPorEstados();
 };
 

@@ -35,6 +35,10 @@ class Acta{
         Acta(string, int, Persona, string, TipoDeTrabajo, Persona, Persona, Persona, Persona);
         void mostrarActa();
         int getIdActa();
+        int getIdJurado1();
+        int getIdJurado2();
+        int getRolJurado1();
+        int getRolJurado2();
         EstadoActa getEstadoActa();
         TipoDeTrabajo getTipoDeTrabajo();
         

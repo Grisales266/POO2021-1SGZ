@@ -47,10 +47,17 @@ int main(){
                 break;
             case 7:
                 cout << "\n=========================\n";
+                cout << "Ha elegido consultar trabajos de un jurado\n";
+                cout << "=========================\n";
+                javeriana.consultarTipoDeTrabajo();
+                break;
+
+            case 8:
+                cout << "\n=========================\n";
                 cout << "Gracias por usar nuestro programa.\n";
                 cout << "=========================\n";
                 break;
         }
-    }while(opcion != 7);
+    }while(opcion != 8);
     return 0;
 }

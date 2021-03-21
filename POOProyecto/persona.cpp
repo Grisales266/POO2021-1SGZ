@@ -36,7 +36,8 @@ string Persona::getNombrePersona(){
     return this->nombre;
 }
 
-int Persona::getrol(){
+int Persona::getRolPersona()
+{
     return this->rol;
 }
 
