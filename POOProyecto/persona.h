@@ -13,7 +13,8 @@ class Persona{
         Persona();
         Persona(string, int, string, int);
         int getId();
-        int getrol();
+        string getNombrePersona();
+        int getRolPersona();
         void mostrarPersona();
 };
 
