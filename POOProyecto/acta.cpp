@@ -13,6 +13,7 @@ Acta::Acta(string fecha, int numeroId, Persona autor, string nombreTrabajo, Tipo
     this->codirector = codirector;
     this->jurado1 = jurado1;
     this->jurado2 = jurado2;
+    this->cantidadCriterios = cantidadCriterios;
 }
 
 void Acta::mostrarActa(){
@@ -75,10 +76,10 @@ void Acta::crearCriterios(){
     float ponderadoU, notaJurado1, notaJurado2, notaPonderada, notaPromedio;
     string criterioU, comentarioJurado;
     for(x = 1; x <= this->cantidadCriterios; x++){
-        cout << "Cual es la descripcion del criterio?: ";
+        cout << "Cual es la descripcion del criterio " << x << " : ";
         cin.ignore();
         getline(cin, criterioU);
-        cout << "Cual es el ponderado de este criterio?: ";
+        cout << "Cual es el ponderado de este criterio " << x << " ?: ";
         cin >> ponderadoU;
         Criterio criterioTemporal(criterioU, x, ponderadoU);
         cout << "Cual es el la nota del jurado 1 para el criterio " << x << ": ";
@@ -88,7 +89,7 @@ void Acta::crearCriterios(){
         cout << "Cual es el comentario de los jurados para el criterio " << x << ": ";
         cin.ignore();
         getline(cin, comentarioJurado);
-        notaPonderada = (((notaJurado1 + notaJurado2) / 2) * ponderadoU);
+        notaPonderada = (((notaJurado1 + notaJurado2) / 2) * (ponderadoU/100));
         notaPromedio = ((notaJurado1 + notaJurado2) / 2);
         this->listaDetallesActa.push_back(DetalleActa(criterioTemporal, notaJurado1, notaJurado2, comentarioJurado, notaPonderada, notaPromedio));
     }
@@ -104,4 +105,14 @@ void Acta::mostrarDetallesDeActa(){
         {
             itActas->mostrarDetallesDeActa();
         }
+}
+
+void Acta::metodoCalcularNotaFinal(){
+    float notaPonderadaAcumulada = 0;
+    for (list<DetalleActa>::iterator it = listaDetallesActa.begin(); it != listaDetallesActa.end(); it++)
+    {
+        notaPonderadaAcumulada += it->getNotaPonderada();
+    }
+    this->notaFinal = notaPonderadaAcumulada;
+    cout << "La nota final es: " << notaPonderadaAcumulada;
 }

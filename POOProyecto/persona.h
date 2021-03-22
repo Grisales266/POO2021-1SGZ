@@ -9,9 +9,10 @@ class Persona{
         int id;
         string email;
         int rol;
+        string tipoJurado;
     public:
         Persona();
-        Persona(string, int, string, int);
+        Persona(string, int, string, int, string);
         int getId();
         string getNombrePersona();
         int getRolPersona();

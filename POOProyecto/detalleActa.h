@@ -16,6 +16,7 @@ class DetalleActa{
         DetalleActa();
         DetalleActa(Criterio, float, float, string, float, float);
         void mostrarDetallesDeActa();
+        float getNotaPonderada();
 };
 
 #endif

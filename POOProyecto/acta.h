@@ -31,6 +31,7 @@ class Acta{
         EstadoActa estadoActa = abierto;
         list<DetalleActa>listaDetallesActa;
         int cantidadCriterios;
+        float notaFinal;
     public:
         Acta();
         Acta(string, int, Persona, string, TipoDeTrabajo, Persona, Persona, Persona, Persona, int);
@@ -47,6 +48,7 @@ class Acta{
         TipoDeTrabajo getTipoDeTrabajo();
         void crearCriterios();
         void mostrarDetallesDeActa();
+        void metodoCalcularNotaFinal();
 };
 
 #endif

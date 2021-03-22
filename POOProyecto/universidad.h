@@ -21,17 +21,19 @@ class Universidad{
         Persona buscarPersona(int);
         int comprobarExistenciaPersona(int);
         void mostrarTodosPersona();
+        void setPersonasNulas();
         void crearActa();
         Acta buscarActa(int);
         int comprobarExistenciaActa(int);
         void mostrarTodasActa();
         void crearCriterio();
         void consultarTipoDeTrabajo();
-        string obtenerFechaSistema();
         void consultarTrabajosDeUnDirector();//Trabajos que ha dirigido un profesor
         void consultarTrabajosDeUnJurado();
         void consultarListaJuradosDeActasRegistradas();
         void mostrarTodasDetalleActa();
+        void calcularNotaFinal();
+        string obtenerFechaSistema();
         //void consultarActasPorEstados();
 };
 

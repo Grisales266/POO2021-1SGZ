@@ -16,9 +16,13 @@ void DetalleActa::mostrarDetallesDeActa(){
     cout << "|===============================| \n";
     cout << " Criterios: " << endl;
     this->criterio.mostrarCriterio();
-    cout << " Nota jurado 1: " << this->notaJurado1 << endl;
-    cout << " Nota jurado 2: " << this->notaJurado2 << endl;
-    cout << " Comentarios de jurados: " << this->comentarioJurado << endl;
-    cout << " Nota ponderado: " << this->notaPonderada << endl;
-    cout << " Nota promedio: " << this->notaPromedio << endl;
+    cout << "Nota jurado 1: " << this->notaJurado1 << endl;
+    cout << "Nota jurado 2: " << this->notaJurado2 << endl;
+    cout << "Comentarios de jurados: " << this->comentarioJurado << endl;
+    cout << "Nota ponderado: " << this->notaPonderada << endl;
+    cout << "Nota promedio: " << this->notaPromedio << endl;
+}
+
+float DetalleActa::getNotaPonderada(){
+    return this->notaPonderada;
 }
