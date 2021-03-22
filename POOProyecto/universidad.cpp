@@ -310,33 +310,10 @@ void Universidad::consultarListaJuradosDeActasRegistradas()
                 itActas->mostrarJurado2();
             }
         }
-
-
-
-
-    /*for(list<int>::iterator itIdJurados = listaIdJurados.begin(); itIdJurados != listaIdJurados.end()--; itIdJurados++)
-    {
-        if(*itIdJurados != *itIdJurados++)
-        {
-            listaIdJuradosSinRepetidos.push_back(itIdJurados->);
-            //Obtendria una lista sin repetidos de los ids jurados que han participado en actas
-
-        }
-        i++;
-    }*/
-
-
-    /*for(list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end();itPersonas++)
-    {
-        if(itPersonas->getRolPersona() == 3 )
-        {
-            itPersonas->mostrarPersona();
-            cout<<"------------------------------------------------"<<endl;
-        }
-    }*/
     cout << "\n==============================\n";
     cout << "Operacion realizada con exito.\n";
     cout << "==============================\n";
+    }
 }
 
 void Universidad::mostrarTodasDetalleActa()
@@ -353,7 +330,8 @@ void Universidad::mostrarTodasDetalleActa()
             }
     for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
     {
-        if(it->getIdActa() == idActa){
+        if(it->getIdActa() == idActa)
+        {
             it->mostrarDetallesDeActa();
         }
     }
@@ -361,9 +339,9 @@ void Universidad::mostrarTodasDetalleActa()
     cout << "Operacion realizada con exito.\n";
     cout << "==============================\n";
 }
-<<<<<<< HEAD
 
-void Universidad::calcularNotaFinal(){
+void Universidad::calcularNotaFinal()
+{
     int idActa;
     cout << "Ingrese el id del acta donde quiere conocer la nota final: \n";
     cin >> idActa;
@@ -374,11 +352,12 @@ void Universidad::calcularNotaFinal(){
         cout << "==============================\n";
         return ;
     }
-    for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++){
+    for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
+    {
         it->metodoCalcularNotaFinal();
     }
 }
-=======
+
 void Universidad::consultarActasPendienteORechazadas()
 {
     int tipoDeActa;
@@ -410,7 +389,7 @@ void Universidad::consultarActasPendienteORechazadas()
     }
 }
 
-void Universidad::mostrarJuradosInternosOExtenos()
+void Universidad::mostrarJuradosInternosOExternos()
 {
     int tipoDeJuradoBuscado;
     cout << "Ingrese el tipo de jurado que busca: \n1.Interno\n2.Externo\n------------>: " << endl;
@@ -418,7 +397,7 @@ void Universidad::mostrarJuradosInternosOExtenos()
     switch (tipoDeJuradoBuscado)
     {
         case 1:
-            cout<<"Jurados Internos";
+            cout<<"Jurados Internos: ";
             for (list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end(); itPersonas++)
             {
                 if (itPersonas->getRolPersona() == 3 && itPersonas->getObtenerTipoInternoExternoJurado == 1)
@@ -426,9 +405,10 @@ void Universidad::mostrarJuradosInternosOExtenos()
                     itPersonas->mostrarPersona();
                 }
             }
-            //TODO reasignar valor con el cual se define externo y externo
+            break;
+            /*TODO reasignar valor con el cual se define externo y externo*/
         case 2:
-            cout<<"Jurados Externos";
+            cout<<"Jurados Externos: ";
             for (list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end(); itPersonas++)
             {
                 if (itPersonas->getRolPersona() == 3 && itPersonas->getObtenerTipoInternoExternoJurado == 2)
@@ -436,6 +416,6 @@ void Universidad::mostrarJuradosInternosOExtenos()
                     itPersonas->mostrarPersona();
                 }
             }
+            break;
     }
 }
->>>>>>> 2d0ef191ad4216ee6233c3b70fed473e35bf917c

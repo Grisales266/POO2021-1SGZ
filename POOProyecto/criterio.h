@@ -7,7 +7,7 @@ class Criterio{
     private:
         int numeroCriterio;
         string nombreCriterio;
-        float ponderadoCriterios;
+        float ponderadoCriterio;
     public:
         Criterio();
         Criterio(string, int, float);
