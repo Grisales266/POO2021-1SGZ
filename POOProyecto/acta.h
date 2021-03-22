@@ -45,8 +45,12 @@ class Acta{
         int getRolActa();
         EstadoActa getEstadoActa();
         TipoDeTrabajo getTipoDeTrabajo();
+        float getNotalFinal();
+        void mostrarJurado2();
+        void mostrarJurado1();
         void crearCriterios();
         void mostrarDetallesDeActa();
+
 };
 
 #endif

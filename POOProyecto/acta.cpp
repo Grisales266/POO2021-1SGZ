@@ -105,3 +105,20 @@ void Acta::mostrarDetallesDeActa(){
             itActas->mostrarDetallesDeActa();
         }
 }
+
+float Acta::getNotalFinal()
+{
+    //return this->CalcularNotafinal();
+    return 0;//TODO reasignar el return y revisar el nombre del metodo calcularNotaFinal();
+}
+
+void Acta::mostrarJurado1()
+{
+    jurado1.mostrarPersona();
+
+}
+
+void Acta::mostrarJurado2()
+{
+    jurado2.mostrarPersona();
+}

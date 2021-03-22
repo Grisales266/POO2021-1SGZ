@@ -30,9 +30,12 @@ class Universidad{
         string obtenerFechaSistema();
         void consultarTrabajosDeUnDirector();//Trabajos que ha dirigido un profesor
         void consultarTrabajosDeUnJurado();
-        void consultarListaJuradosDeActasRegistradas();
+        void consultarListaJuradosDeActasRegistradas();//TODO realizar cambios en el metodo para que no hallan repetidos
         void mostrarTodasDetalleActa();
-        //void consultarActasPorEstados();
+        void mostrarJuradosInternosOExtenos();
+        void consultarActasPendienteORechazadas();
+        int comprobarSiElementoEnUnaLista(list<int> , int );
+
 };
 
 

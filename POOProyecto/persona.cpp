@@ -43,3 +43,10 @@ int Persona::getRolPersona()
 {
     return this->rol;
 }
+
+int Persona::getObtenerTipoInternoExternoJurado()
+{
+    //TODO return this->InternoExterno
+    //TODO crear atributo para persona que defina si es extero o interno
+    return 0;
+}
