@@ -276,17 +276,64 @@ void Universidad::consultarTrabajosDeUnJurado()
     cout << "Operacion realizada con exito.\n";
     cout << "==============================\n";
 }
+int Universidad::comprobarSiElementoEnUnaLista(list<int> lista, int valorAComprobar)
+{
+    for(list<int>::iterator itRecorredorDeLista = lista.begin(); itRecorredorDeLista != lista.end();itRecorredorDeLista++)
+    {
+        if(*itRecorredorDeLista == valorAComprobar)
+        {
+            return 0;
 
+        }
+
+    }
+    return 1;
+}
 void Universidad::consultarListaJuradosDeActasRegistradas()
 {
-    for(list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end();itPersonas++)
+
+    list<int> listaIdJurados;
+    for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end(); itActas++)
+    {
+        if(itActas->getRolJurado1() == 3 || itActas->getRolJurado2() == 3)
+        {
+
+            if(comprobarSiElementoEnUnaLista(listaIdJurados,itActas->getIdJurado1()))
+            {
+                listaIdJurados.push_back(itActas->getIdJurado1());
+                itActas->mostrarJurado1(); //TODO  creal el metodo
+            }
+
+            if(comprobarSiElementoEnUnaLista(listaIdJurados,itActas->getIdJurado2()))
+            {
+                listaIdJurados.push_back(itActas->getIdJurado2());
+                itActas->mostrarJurado2();
+            }
+        }
+
+
+
+
+    /*for(list<int>::iterator itIdJurados = listaIdJurados.begin(); itIdJurados != listaIdJurados.end()--; itIdJurados++)
+    {
+        if(*itIdJurados != *itIdJurados++)
+        {
+            listaIdJuradosSinRepetidos.push_back(itIdJurados->);
+            //Obtendria una lista sin repetidos de los ids jurados que han participado en actas
+
+        }
+        i++;
+    }*/
+
+
+    /*for(list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end();itPersonas++)
     {
         if(itPersonas->getRolPersona() == 3 )
         {
             itPersonas->mostrarPersona();
             cout<<"------------------------------------------------"<<endl;
         }
-    }
+    }*/
     cout << "\n==============================\n";
     cout << "Operacion realizada con exito.\n";
     cout << "==============================\n";
@@ -314,6 +361,7 @@ void Universidad::mostrarTodasDetalleActa()
     cout << "Operacion realizada con exito.\n";
     cout << "==============================\n";
 }
+<<<<<<< HEAD
 
 void Universidad::calcularNotaFinal(){
     int idActa;
@@ -330,3 +378,64 @@ void Universidad::calcularNotaFinal(){
         it->metodoCalcularNotaFinal();
     }
 }
+=======
+void Universidad::consultarActasPendienteORechazadas()
+{
+    int tipoDeActa;
+    cout << "Ingrese el tipo de acta que busca: \n1.Pendiente \n2.Rechazada\n------------>: " << endl;
+    cin >> tipoDeActa;
+    switch (tipoDeActa)
+    {
+        case 1:
+            cout<<"Rechazadas";
+            for (list<Acta>::iterator itActa = listaDeActas.begin(); itActa != listaDeActas.end(); itActa++)
+            {
+                if (itActa->getNotaFinal() <= 1 ) //getNotaFinal debe ser de tipo float
+                {
+                    itActa->mostrarActa();
+                }
+            }
+            //TODO revisar asignacion del tipo de valor que retorna la funciona getNotaFinal
+
+        case 2:
+            cout<<"ActasPendientes";
+            for (list<Acta>::iterator itActa = listaDeActas.begin(); itActa != listaDeActas.end(); itActa++)
+            {
+                if (itActa->getNotaFinal() <=  3 ) //getNotaFinal debe ser de tipo float
+                {
+                    itActa->mostrarActa();
+                }
+            }
+
+    }
+}
+
+void Universidad::mostrarJuradosInternosOExtenos()
+{
+    int tipoDeJuradoBuscado;
+    cout << "Ingrese el tipo de jurado que busca: \n1.Interno\n2.Externo\n------------>: " << endl;
+    cin >> tipoDeJuradoBuscado;
+    switch (tipoDeJuradoBuscado)
+    {
+        case 1:
+            cout<<"Jurados Internos";
+            for (list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end(); itPersonas++)
+            {
+                if (itPersonas->getRolPersona() == 3 && itPersonas->getObtenerTipoInternoExternoJurado == 1)
+                {
+                    itPersonas->mostrarPersona();
+                }
+            }
+            //TODO reasignar valor con el cual se define externo y externo
+        case 2:
+            cout<<"Jurados Externos";
+            for (list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end(); itPersonas++)
+            {
+                if (itPersonas->getRolPersona() == 3 && itPersonas->getObtenerTipoInternoExternoJurado == 2)
+                {
+                    itPersonas->mostrarPersona();
+                }
+            }
+    }
+}
+>>>>>>> 2d0ef191ad4216ee6233c3b70fed473e35bf917c

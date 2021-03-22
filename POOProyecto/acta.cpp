@@ -107,6 +107,7 @@ void Acta::mostrarDetallesDeActa(){
         }
 }
 
+<<<<<<< HEAD
 void Acta::metodoCalcularNotaFinal(){
     float notaPonderadaAcumulada = 0;
     for (list<DetalleActa>::iterator it = listaDetallesActa.begin(); it != listaDetallesActa.end(); it++)
@@ -115,4 +116,21 @@ void Acta::metodoCalcularNotaFinal(){
     }
     this->notaFinal = notaPonderadaAcumulada;
     cout << "La nota final es: " << notaPonderadaAcumulada;
+=======
+float Acta::getNotalFinal()
+{
+    //return this->CalcularNotafinal();
+    return 0;//TODO reasignar el return y revisar el nombre del metodo calcularNotaFinal();
+}
+
+void Acta::mostrarJurado1()
+{
+    jurado1.mostrarPersona();
+
+}
+
+void Acta::mostrarJurado2()
+{
+    jurado2.mostrarPersona();
+>>>>>>> 2d0ef191ad4216ee6233c3b70fed473e35bf917c
 }
