@@ -246,6 +246,11 @@ void Universidad::consultarTrabajosDeUnDirector()
     int idProfesorBuscado;
     cout << "Ingrese el ID del profesor consultado: ";
     cin >> idProfesorBuscado;
+    if(!comprobarExistenciaPersona(idProfesorBuscado) )
+    {
+        cout<<"La persona no existe"<<endl;
+        return;
+    }
     cout << "Ids de acta donde ha dirigido el director de id " << idProfesorBuscado << ": ";
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end(); itActas++)
     {
@@ -264,6 +269,11 @@ void Universidad::consultarTrabajosDeUnJurado()
     int idJuradoBuscado;
     cout << "Ingrese el ID del jurado consultado: ";
     cin >> idJuradoBuscado;
+    if(!comprobarExistenciaPersona(idJuradoBuscado) )
+    {
+        cout<<"La persona no existe"<<endl;
+        return;
+    }
     cout << "El jurado de id " << idJuradoBuscado << " esta en las actas de id: "; 
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)
     {
