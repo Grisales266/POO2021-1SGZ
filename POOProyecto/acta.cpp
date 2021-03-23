@@ -14,6 +14,8 @@ Acta::Acta(string fecha, int numeroId, Persona autor, string nombreTrabajo, Tipo
     this->jurado1 = jurado1;
     this->jurado2 = jurado2;
     this->cantidadCriterios = cantidadCriterios;
+    this->estadoActa = abierto;
+    this->estadoCalificacion = pendiente;
 }
 
 void Acta::mostrarActa(){
@@ -23,11 +25,31 @@ void Acta::mostrarActa(){
     cout << "Autor: ";
     cout << autor.getNombrePersona() << endl;
     cout << "Nombre de trabajo: " << this->nombreTrabajo << endl;
-    if(this->tipoDeTrabajo == 1){
+    if(this->tipoDeTrabajo == 1)
+    {
         cout << "Tipo de trabajo: Industrial"<< endl;
     }
-    else{
+    else
+    {
         cout << "Tipo de trabajo: Investigacion" << endl;
+    }
+    if(this->estadoActa == 1)
+    {
+        cout << "Estado de acta: Abierto"<< endl;
+    }
+    else if(this->estadoActa == 2)
+    {
+        cout << "Estado de acta: Cerrado"<< endl;
+    }
+    if(this->estadoCalificacion == 1)
+    {
+        cout << "Estado de calificacion: Aprobado"<< endl;
+    }
+    else if(this->estadoCalificacion == 2){
+        cout << "Estado de calificacion: Rechazado"<< endl;
+    }
+    else{
+        cout << "Estado de calificacion: Pendiente"<< endl;
     }
     cout << "Director: ";
     cout << director.getNombrePersona() << endl;
@@ -37,8 +59,8 @@ void Acta::mostrarActa(){
     cout << jurado1.getNombrePersona() << endl;
     cout << "Jurado 2: ";
     cout << jurado2.getNombrePersona() << endl;
-    
 }
+
 int Acta::getRolDirector()
 {
     return this->director.getRolPersona();
@@ -67,7 +89,8 @@ int Acta::getRolJurado2()
     return this->jurado2.getRolPersona();
 }
 
-int Acta::getIdActa(){
+int Acta::getIdActa()
+{
     return this->numeroId;
 }
 
@@ -76,7 +99,8 @@ TipoDeTrabajo Acta::getTipoDeTrabajo()
     return this->tipoDeTrabajo;
 }
 
-void Acta::crearCriterios(){
+void Acta::crearCriterios()
+{
     int x;
     float ponderadoU, notaJurado1, notaJurado2, notaPonderada, notaPromedio;
     string criterioU, comentarioJurado;
@@ -105,20 +129,28 @@ EstadoActa Acta::getEstadoActa()
     return this->estadoActa;
 }
 
-void Acta::mostrarDetallesDeActa(){
+void Acta::mostrarDetallesDeActa()
+{
     for(list<DetalleActa>::iterator itActas = listaDetallesActa.begin(); itActas != listaDetallesActa.end(); itActas++)
         {
             itActas->mostrarDetallesDeActa();
         }
 }
 
-void Acta::metodoCalcularNotaFinal(){
-    float notaPonderadaAcumulada = 0;
-    for (list<DetalleActa>::iterator it = listaDetallesActa.begin(); it != listaDetallesActa.end(); it++)
-    {
-        notaPonderadaAcumulada += it->getNotaPonderada();
-    }
-    this->notaFinal = notaPonderadaAcumulada;
+void Acta::metodoCalcularNotaFinal()
+{
+        float notaPonderadaAcumulada = 0;
+        for (list<DetalleActa>::iterator it = listaDetallesActa.begin(); it != listaDetallesActa.end(); it++)
+        {
+            notaPonderadaAcumulada += it->getNotaPonderada();
+        }
+        this->notaFinal = notaPonderadaAcumulada;
+        if(notaPonderadaAcumulada < 3.5){
+            this->estadoCalificacion = rechazado;
+        }
+        else if(notaPonderadaAcumulada >= 3.5){
+            this->estadoCalificacion = aprobado;
+        }
     cout << "La nota final es: " << notaPonderadaAcumulada << endl;
 }
 
@@ -136,7 +168,8 @@ void Acta::mostrarJurado2()
 {
     jurado2.mostrarPersona();
 }
-void Acta::getDetallesActa()
+
+void Acta::cambiarEstadoActa()
 {
-    cout<< listaDetallesActa <<endl;
+    this->estadoActa = cerrado;
 }

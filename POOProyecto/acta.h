@@ -3,7 +3,6 @@
 #include <iostream>
 #include "persona.h"
 #include "detalleActa.h"
-
 using namespace std;
 #include <list>
 using std::string;
@@ -14,6 +13,10 @@ enum EstadoActa{
 
 enum TipoDeTrabajo{
     industrial = 1, investigacion
+};
+
+enum EstadoCalificacion{
+    aprobado = 1, rechazado, pendiente
 };
 
 class Acta{
@@ -28,7 +31,8 @@ class Acta{
         Persona codirector;
         Persona jurado1;
         Persona jurado2;
-        EstadoActa estadoActa = abierto;
+        EstadoActa estadoActa;
+        EstadoCalificacion estadoCalificacion;
         list<DetalleActa>listaDetallesActa;
         int cantidadCriterios;
         float notaFinal;
@@ -51,9 +55,8 @@ class Acta{
         void crearCriterios();
         void mostrarDetallesDeActa();
         void metodoCalcularNotaFinal();
-        void getDetallesActa();
         float getNotaFinal();
-
+        void cambiarEstadoActa();
 };
 
 #endif
