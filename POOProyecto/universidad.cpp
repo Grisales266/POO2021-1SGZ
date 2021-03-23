@@ -246,6 +246,11 @@ void Universidad::consultarTrabajosDeUnDirector()
     int idProfesorBuscado;
     cout << "Ingrese el ID del profesor consultado: ";
     cin >> idProfesorBuscado;
+    if(!comprobarExistenciaPersona(idProfesorBuscado) )
+    {
+        cout<<"La persona no existe"<<endl;
+        return;
+    }
     cout << "Ids de acta donde ha dirigido el director de id " << idProfesorBuscado << ": ";
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end(); itActas++)
     {
@@ -264,6 +269,11 @@ void Universidad::consultarTrabajosDeUnJurado()
     int idJuradoBuscado;
     cout << "Ingrese el ID del jurado consultado: ";
     cin >> idJuradoBuscado;
+    if(!comprobarExistenciaPersona(idJuradoBuscado) )
+    {
+        cout<<"La persona no existe"<<endl;
+        return;
+    }
     cout << "El jurado de id " << idJuradoBuscado << " esta en las actas de id: "; 
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)
     {
@@ -399,13 +409,13 @@ void Universidad::mostrarJuradosInternosOExternos()
     int tipoDeJuradoBuscado;
     cout << "Ingrese el tipo de jurado que busca: \n1.Interno\n2.Externo\nOpcion: ";
     cin >> tipoDeJuradoBuscado;
-    switch (tipoDeJuradoBuscado)
+    switch(tipoDeJuradoBuscado)
     {
         case 1:
             cout<<"Jurados Internos: " << endl;
             for (list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end(); itPersonas++)
             {
-                if (itPersonas->getRolPersona() == 3 && itPersonas->getObtenerTipoInternoExternoJurado == 1)
+                if (itPersonas->getRolPersona() == 3 && itPersonas->getObtenerTipoInternoExternoJurado() == "Interno")
                 {
                     itPersonas->mostrarPersona();
                 }
@@ -416,11 +426,46 @@ void Universidad::mostrarJuradosInternosOExternos()
             cout<<"Jurados Externos: " << endl;
             for (list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end(); itPersonas++)
             {
-                if (itPersonas->getRolPersona() == 3 && itPersonas->getObtenerTipoInternoExternoJurado == 2)
+                if (itPersonas->getRolPersona() == 3 && itPersonas->getObtenerTipoInternoExternoJurado() == "Externo")
                 {
                     itPersonas->mostrarPersona();
                 }
             }
             break;
     }
+}
+
+void Universidad::consultarCriteriosDeEvalucacionDeActa()
+{
+    int actaConsultarSusCriterios;
+    cout<<"Ingrese el ID de la acta de la que desea conocer los criterios: "<<endl;
+    cin>>actaConsultarSusCriterios;
+    for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end(); itActas++)
+    {
+        if(itActas->getIdActa() == actaConsultarSusCriterios)
+        {
+            itActas->getDetallesActa();
+
+        }
+    }
+}
+
+void Universidad::eliminarActaPorId()
+{
+    int idActaAEliminar;
+    cout<<"Ingrese el id de la acta que desea elimimar: "<<endl;
+    cin>>idActaAEliminar;
+    for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)
+    {
+        if(itActas->getIdActa() == idActaAEliminar)
+        {
+            listaDeActas.erase(itActas);
+            cout<<"La acta ha sido encontrada y eliminada"<<endl;
+            break;
+        }
+    }
+    else
+        {
+        cout<<"No existe un acta con ese id en la base de datos."<<endl;
+        }
 }

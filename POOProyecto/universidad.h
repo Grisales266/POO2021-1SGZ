@@ -30,13 +30,15 @@ class Universidad{
         void consultarTipoDeTrabajo();
         void consultarTrabajosDeUnDirector();//Trabajos que ha dirigido un profesor
         void consultarTrabajosDeUnJurado();
-        void consultarListaJuradosDeActasRegistradas();//TODO realizar cambios en el metodo para que no hallan repetidos
+        void consultarListaJuradosDeActasRegistradas();
         void mostrarTodasDetalleActa();
         void calcularNotaFinal();
         string obtenerFechaSistema();
         //void consultarActasPorEstados();
         void mostrarJuradosInternosOExternos();
         void consultarActasPendienteORechazadas();
+        void consultarCriteriosDeEvalucacionDeActa();
+        void eliminarActaPorId();
         int comprobarSiElementoEnUnaLista(list<int> , int );
 
 };

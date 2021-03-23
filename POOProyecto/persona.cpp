@@ -48,6 +48,11 @@ int Persona::getRolPersona()
     return this->rol;
 }
 
+string Persona::getObtenerTipoInternoExternoJurado()
+{
+    return this->tipoJurado;
+}
+
 /*int Persona::getObtenerTipoInternoExternoJurado()
 {
     //TODO return this->InternoExterno

@@ -51,6 +51,7 @@ class Acta{
         void crearCriterios();
         void mostrarDetallesDeActa();
         void metodoCalcularNotaFinal();
+        void getDetallesActa();
         float getNotaFinal();
 
 };

@@ -17,7 +17,7 @@ class Persona{
         string getNombrePersona();
         int getRolPersona();
         void mostrarPersona();
-        int getObtenerTipoInternoExternoJurado;
+        string getObtenerTipoInternoExternoJurado();
 };
 
 #endif

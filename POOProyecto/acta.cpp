@@ -136,3 +136,7 @@ void Acta::mostrarJurado2()
 {
     jurado2.mostrarPersona();
 }
+void Acta::getDetallesActa()
+{
+    cout<< listaDetallesActa <<endl;
+}
