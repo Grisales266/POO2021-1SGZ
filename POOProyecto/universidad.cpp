@@ -267,7 +267,11 @@ void Universidad::consultarTrabajosDeUnJurado()
     cout << "El jurado de id " << idJuradoBuscado << " esta en las actas de id: "; 
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)
     {
-        if(itActas->getIdJurado1() == idJuradoBuscado || itActas->getIdJurado2() == idJuradoBuscado && itActas->getRolJurado1() == 3 ||  itActas->getRolJurado2() == 3  )
+        if(itActas->getIdJurado1() == idJuradoBuscado && itActas->getRolJurado1() == 3)
+        {
+            cout<<itActas->getIdActa()<<endl;
+        }
+        else if(itActas->getIdJurado2() == idJuradoBuscado && itActas->getRolJurado2() == 3)
         {
             cout<<itActas->getIdActa()<<endl;
         }
@@ -276,6 +280,7 @@ void Universidad::consultarTrabajosDeUnJurado()
     cout << "Operacion realizada con exito.\n";
     cout << "==============================\n";
 }
+
 int Universidad::comprobarSiElementoEnUnaLista(list<int> lista, int valorAComprobar)
 {
     for(list<int>::iterator itRecorredorDeLista = lista.begin(); itRecorredorDeLista != lista.end();itRecorredorDeLista++)
@@ -319,7 +324,7 @@ void Universidad::consultarListaJuradosDeActasRegistradas()
 void Universidad::mostrarTodasDetalleActa()
 {
     int idActa;
-    cout << "Ingrese el Id del acta que quiere saber los criterios: \n";
+    cout << "Ingrese el Id del acta que quiere saber los criterios: ";
     cin >> idActa;
     if(comprobarExistenciaActa(idActa) != 1)
             {
@@ -343,7 +348,7 @@ void Universidad::mostrarTodasDetalleActa()
 void Universidad::calcularNotaFinal()
 {
     int idActa;
-    cout << "Ingrese el id del acta donde quiere conocer la nota final: \n";
+    cout << "Ingrese el id del acta donde quiere conocer la nota final: ";
     cin >> idActa;
     if(comprobarExistenciaActa(idActa) != 1)
     {

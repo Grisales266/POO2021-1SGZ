@@ -10,6 +10,7 @@ int main(){
     cout << "Bienvenido al menu del programa.\n";
     do{
         cout << "1.Crear personas.\n2.Crear actas de grado.\n3.Crear criterios y diligenciar calificaciones.\n4.Calcular nota final.\n5.Mostrar Personas.\n6.Mostrar Actas de grado.\n7.Mostrar detalles de acta.\n8.Consultar actas por tipo de trabajo.\n9.Consultar trabajos en los cuales ha participado un jurado.\n10. Consultar trabajos de un director.\n11.Consultar lista de jurados que han participado en los trabajos.\n12.Mostrar jurados internos o externos.\n13.Consultar actas pendientes o rechazadas.\n14.Salir.\nOpcion: ";
+        cin >> opcion;
         switch(opcion){
             case 1:
                 cout << "\n=========================\n";
