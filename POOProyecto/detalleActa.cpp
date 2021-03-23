@@ -1,8 +1,10 @@
 #include "detalleActa.h"
 
+/*Constructor por defecto*/
 DetalleActa::DetalleActa(){
 }
 
+/*Constructor por parámetros*/
 DetalleActa::DetalleActa(Criterio criterio, float notaJurado1, float notaJurado2, string comentarioJurado, float notaPonderada, float notaPromedio){
     this->criterio = criterio;
     this->notaJurado1 = notaJurado1;
@@ -12,6 +14,7 @@ DetalleActa::DetalleActa(Criterio criterio, float notaJurado1, float notaJurado2
     this->notaPromedio = notaPromedio;
 }
 
+/*Método para organizar la información del detalle acta que será impresa más adelante*/
 void DetalleActa::mostrarDetallesDeActa(){
     cout << "|===============================| \n";
     cout << " Criterios: " << endl;
@@ -23,10 +26,12 @@ void DetalleActa::mostrarDetallesDeActa(){
     cout << "Nota promedio: " << this->notaPromedio << endl;
 }
 
+/*Método para obtener la nota ponderada calculada de las notas de los jurados*/
 float DetalleActa::getNotaPonderada(){
     return this->notaPonderada;
 }
 
+/*Método para organizar la información del detalle acta que será mostrada en el archivo .txt*/
 void DetalleActa::detallesActaParaTxt(string nombreArchivo)
 {
     ofstream archivo;

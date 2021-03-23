@@ -34,7 +34,6 @@ class Universidad{
         void mostrarTodasDetalleActa();
         void calcularNotaFinal();
         string obtenerFechaSistema();
-        //void consultarActasPorEstados();
         void mostrarJuradosInternosOExternos();
         void consultarActasPendienteORechazadas();
         void eliminarActaPorId();

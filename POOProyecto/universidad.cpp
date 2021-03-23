@@ -116,7 +116,7 @@ void Universidad::crearPersona()
     cout << "==============================\n";
 }
 
-/*Método para comprobar la existencia de una persona*/
+/*Método para comprobar la existencia de una persona recorriendo las listas de personas*/
 int Universidad::comprobarExistenciaPersona(int id)
 {
     for(list<Persona>::iterator it = listaDePersonas.begin(); it != listaDePersonas.end(); it++)
@@ -129,6 +129,7 @@ int Universidad::comprobarExistenciaPersona(int id)
     return 0;
 }
 
+/*Método para guardar una persona vacía (el codirector), donde se pregunta si existe o no*/
 void Universidad::setPersonasNulas(){
     string nombreU, emailU, tipoJurado;
     int idU, rolU;
@@ -140,6 +141,7 @@ void Universidad::setPersonasNulas(){
     this->listaDePersonas.push_back(Persona(nombreU, idU, emailU, rolU, tipoJurado));
 }
 
+/*Método para comprobar la existencia del acta*/
 int Universidad::comprobarExistenciaActa(int idActa)
 {
     for(list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
@@ -152,6 +154,7 @@ int Universidad::comprobarExistenciaActa(int idActa)
     return 0;
 }
 
+/*Método para buscar una persona por ESPECÍFICO mediante el uso del ID*/
 Persona Universidad::buscarPersona(int id)
 {
     for(list<Persona>::iterator it = listaDePersonas.begin(); it != listaDePersonas.end(); it++)
@@ -163,6 +166,7 @@ Persona Universidad::buscarPersona(int id)
     }
 }
 
+/*Método para buscar un acta en ESPECÍFICO mediante el uso del id del acta*/
 Acta Universidad::buscarActa(int idActa)
 {
     for(list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
@@ -174,6 +178,7 @@ Acta Universidad::buscarActa(int idActa)
     }
 }
 
+/*Método para mostrar todas las personas que han sido registradas en la lista de personas*/
 void Universidad::mostrarTodosPersona()
 {
     for (list<Persona>::iterator it = listaDePersonas.begin(); it != listaDePersonas.end(); it++)
@@ -182,6 +187,7 @@ void Universidad::mostrarTodosPersona()
     }
 }
 
+/*Método para mostrar todas las actas que han sido registradas en la lista de actas*/
 void Universidad::mostrarTodasActa()
 {
     for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
@@ -190,12 +196,13 @@ void Universidad::mostrarTodasActa()
     }
 }
 
+/*Método para consultar un tipo de trabajo que ha sido ingresado en el acta. (Investigació o industria)*/
 void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo es de tipo Industria o Investigacion
 {
     int acumuladorTrabajosDeTipoA = 0, acumuladorTrabajosDeTipoB = 0;
     cout << "Id's actas trabajo de tipo Industria: ";
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)//Para hallar de tipo A
-        if(itActas->getTipoDeTrabajo() == industrial )//TODO Asignar condicion de busqueda
+        if(itActas->getTipoDeTrabajo() == industrial )
         {
             cout << itActas->getIdActa() << " - ";
             acumuladorTrabajosDeTipoA += 1;
@@ -203,7 +210,7 @@ void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo 
 
     cout<<"\nId's actas trabajo de tipo Investigacion: ";
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)//Para hallar de tipo B
-        if(itActas->getTipoDeTrabajo() == investigacion )//TODO Asignar condicion de busqueda
+        if(itActas->getTipoDeTrabajo() == investigacion )
         {
             cout << itActas->getIdActa() << " - ";
             acumuladorTrabajosDeTipoB += 1;
@@ -215,12 +222,13 @@ void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo 
 
 }
 
+/*Método para crear los criterios y diligenciar calificaciones que será guardado en la lista de detalle acta*/
 void Universidad::crearCriterio(){
     string criterioU;
     int ponderadoU, idTemporal;
     cout << "Digite el id del acta donde pondra los criterios: ";
     cin >> idTemporal;
-    if(comprobarExistenciaActa(idTemporal) != 1){
+    if(comprobarExistenciaActa(idTemporal) != 1){//Comprobar existencias
         cout << "\n=========================\n";
         cout << "El acta no existe.\n";
         cout << "=========================\n";
@@ -237,6 +245,7 @@ void Universidad::crearCriterio(){
     cout << "==============================\n";
 }
 
+/*Método para obtener la fecha actual de forma automática */
 string Universidad::obtenerFechaSistema()
 {
     time_t      now = time(0);
@@ -248,10 +257,11 @@ string Universidad::obtenerFechaSistema()
 
 }
 
+/*Método para hallar los ids de los trabajos que ha dirigido un director*/
 void Universidad::consultarTrabajosDeUnDirector()
 {
     int idProfesorBuscado;
-    cout << "Ingrese el ID del profesor consultado: ";
+    cout << "Ingrese el ID del director consultado: ";
     cin >> idProfesorBuscado;
     if(!comprobarExistenciaPersona(idProfesorBuscado) )
     {
@@ -271,12 +281,13 @@ void Universidad::consultarTrabajosDeUnDirector()
     cout << "==============================\n";
 }
 
+/*Método para consultar los trabajos en los que ha participado un jurado (sin repetir)*/
 void Universidad::consultarTrabajosDeUnJurado()
 {
     int idJuradoBuscado;
     cout << "Ingrese el ID del jurado consultado: ";
     cin >> idJuradoBuscado;
-    if(!comprobarExistenciaPersona(idJuradoBuscado) )
+    if(!comprobarExistenciaPersona(idJuradoBuscado) )//Comprobar existencias
     {
         cout<<"La persona no existe."<<endl;
         return;
@@ -298,6 +309,7 @@ void Universidad::consultarTrabajosDeUnJurado()
     cout << "==============================\n";
 }
 
+/*Método que recibe cualquier lista y valor para verificar que el valor existe en esa lista*/
 int Universidad::comprobarSiElementoEnUnaLista(list<int> lista, int valorAComprobar)
 {
     for(list<int>::iterator itRecorredorDeLista = lista.begin(); itRecorredorDeLista != lista.end();itRecorredorDeLista++)
@@ -311,10 +323,11 @@ int Universidad::comprobarSiElementoEnUnaLista(list<int> lista, int valorACompro
     }
     return 1;
 }
+
+/*Método que permite mostrar los jurados que han participado en las actas(sin repetir)*/
 void Universidad::consultarListaJuradosDeActasRegistradas()
 {
-
-    list<int> listaIdJurados;
+    list<int> listaIdJurados;// Esta lista va a guardar los ids de los jurados sin repetir
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end(); itActas++)
     {
         if(itActas->getRolJurado1() == 3 || itActas->getRolJurado2() == 3)
@@ -323,7 +336,7 @@ void Universidad::consultarListaJuradosDeActasRegistradas()
             if(comprobarSiElementoEnUnaLista(listaIdJurados,itActas->getIdJurado1()))
             {
                 listaIdJurados.push_back(itActas->getIdJurado1());
-                itActas->mostrarJurado1(); //TODO  creal el metodo
+                itActas->mostrarJurado1();
             }
 
             if(comprobarSiElementoEnUnaLista(listaIdJurados,itActas->getIdJurado2()))
@@ -338,6 +351,7 @@ void Universidad::consultarListaJuradosDeActasRegistradas()
     }
 }
 
+/*Método para mostrar los criterios con cada uno de sus detalles necesarios para mostrarse*/
 void Universidad::mostrarTodasDetalleActa()
 {
     int idActa;
@@ -362,6 +376,7 @@ void Universidad::mostrarTodasDetalleActa()
     cout << "==============================\n";
 }
 
+/*Método que calcula la nota final teniendo en cuenta los criterios con cada uno de sus detalles de acta*/
 void Universidad::calcularNotaFinal()
 {
     int idActa;
@@ -382,7 +397,8 @@ void Universidad::calcularNotaFinal()
         }
     }
 }
-//Este metodpo pregunta el tipo de estado de calificacion que desea consultar y muestra las actas que cumplen ese tipo
+
+//Este metodo pregunta el tipo de estado de calificacion que desea consultar y muestra las actas que cumplen ese tipo
 void Universidad::consultarActasPendienteORechazadas()
 {
     int tipoDeActa;
@@ -416,6 +432,7 @@ void Universidad::consultarActasPendienteORechazadas()
     cout << "==============================\n";
 }
 
+/*Método para mostrar los jurados de tipo internos y externos*/
 void Universidad::mostrarJuradosInternosOExternos()
 {
     int tipoDeJuradoBuscado;
@@ -449,6 +466,7 @@ void Universidad::mostrarJuradosInternosOExternos()
     cout << "==============================\n";
 }
 
+/*Método que recibe un id de acta para eliminar de la lista de actas y que esta no aparezca cuando se pida imprimir*/
 void Universidad::eliminarActaPorId()
 {
     int idActaAEliminar;
@@ -475,6 +493,7 @@ void Universidad::eliminarActaPorId()
     cout << "==============================\n";
 }
 
+/*Método para cambiar el estado de acta de abierto a cerrado y que esta no pueda ser modificada*/
 void Universidad::cerrarActaPorId(){
     int idActaACerrar;
     cout<<"Ingrese el id de la acta que desea cerrar: "<<endl;
@@ -498,6 +517,7 @@ void Universidad::cerrarActaPorId(){
     cout << "==============================\n";
 }
 
+/*Método para recoger los datos de actas, personas y detalles de acta que terminan siendo mostrados en un txt de forma decente*/
 void Universidad::crearTxt(){
     int idActa;
     cout << "Ingrese el id del acta a la que quiere crear el archivo: ";

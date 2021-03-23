@@ -216,12 +216,5 @@ void Acta::metodoCrearTxt()
         {
             it->detallesActaParaTxt(nombreArchivo);
         }
-<<<<<<< HEAD
 }
-=======
-=======
-EstadoCalificacion Acta::getEstadoCalificacion()
-{
-    return this->estadoCalificacion;
->>>>>>> origin
 
