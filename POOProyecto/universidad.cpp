@@ -410,7 +410,7 @@ void Universidad::consultarActasPendienteORechazadas()
             cout<<"Actas rechazadas";
             for (list<Acta>::iterator itActa = listaDeActas.begin(); itActa != listaDeActas.end(); itActa++)
             {
-                if (itActa->getNotaFinal() <= 3.5 ) //getNotaFinal debe ser de tipo float
+                if (itActa->getEstadoCalificacion() == rechazado ) 
                 {
                     itActa->mostrarActa();
                 }
@@ -483,7 +483,7 @@ void Universidad::eliminarActaPorId()
     {
         if(itActas->getIdActa() == idActaAEliminar)
         {
-            cout << "Entro\n";
+            cout << "El acta ha sido eliminada con exito.\n";
             listaDeActas.erase(itActas);
             break;
         }

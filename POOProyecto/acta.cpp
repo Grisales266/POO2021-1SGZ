@@ -227,15 +227,6 @@ void Acta::metodoCrearTxt()
         archivo << jurado1.getNombrePersona() << endl;
         archivo << "Jurado 2: ";
         archivo << jurado2.getNombrePersona() << endl;
-<<<<<<< HEAD
-        }
-        archivo.close();
-        for (list<DetalleActa>::iterator it = listaDetallesActa.begin(); it != listaDetallesActa.end(); it++)
-        {
-            it->detallesActaParaTxt(nombreArchivo);
-        }
-}
-=======
     }
     archivo.close();
     for (list<DetalleActa>::iterator it = listaDetallesActa.begin(); it != listaDetallesActa.end(); it++)
@@ -244,5 +235,4 @@ void Acta::metodoCrearTxt()
     }
 }
 
->>>>>>> 524ffdba01f85e8053ca7a938b4ac1fc3f86c603
 

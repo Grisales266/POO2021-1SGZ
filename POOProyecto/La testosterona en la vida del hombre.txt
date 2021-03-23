@@ -1,64 +1,8 @@
 ==================
 Fecha: 23-03-21
-Acta: 12345
+Acta: 54321
 Autor: Edison Pedroza
 Nombre de trabajo: La testosterona en la vida del hombre
-Tipo de trabajo: Investigacion
+Tipo de trabajo: Industrial
 Jurado 1: Felipe Palacio
 Jurado 2: Fabian Ledezma
-|===============================| 
- Criterios: 
-Nota jurado 1: 3
-Nota jurado 2: 4
-Comentarios de jurados: afasfasfsa
-Nota ponderado: 0.7
-Nota promedio: 3.5
-|===============================| 
- Criterios: 
-Nota jurado 1: 4
-Nota jurado 2: 5
-Comentarios de jurados: afasfasfsa
-Nota ponderado: 0.675
-Nota promedio: 4.5
-|===============================| 
- Criterios: 
-Nota jurado 1: 5
-Nota jurado 2: 5
-Comentarios de jurados: afasfasfsa
-Nota ponderado: 0.5
-Nota promedio: 5
-|===============================| 
- Criterios: 
-Nota jurado 1: 2
-Nota jurado 2: 4
-Comentarios de jurados: afasfasfsa
-Nota ponderado: 0.3
-Nota promedio: 3
-|===============================| 
- Criterios: 
-Nota jurado 1: 3
-Nota jurado 2: 4
-Comentarios de jurados: afasfasfsa
-Nota ponderado: 0.7
-Nota promedio: 3.5
-|===============================| 
- Criterios: 
-Nota jurado 1: 5
-Nota jurado 2: 4
-Comentarios de jurados: afasfasfsa
-Nota ponderado: 0.45
-Nota promedio: 4.5
-|===============================| 
- Criterios: 
-Nota jurado 1: 3
-Nota jurado 2: 3
-Comentarios de jurados: afasfasfsa
-Nota ponderado: 0.225
-Nota promedio: 3
-|===============================| 
- Criterios: 
-Nota jurado 1: 2
-Nota jurado 2: 4
-Comentarios de jurados: afasfasfsa
-Nota ponderado: 0.225
-Nota promedio: 3
