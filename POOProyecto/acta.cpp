@@ -17,7 +17,7 @@ Acta::Acta(string fecha, int numeroId, Persona autor, string nombreTrabajo, Tipo
     this->estadoActa = abierto;
     this->estadoCalificacion = pendiente;
 }
-
+//Metodo que nos permite imprimir una acta en pantalla importando los datos necesarios
 void Acta::mostrarActa(){
     cout << "==================" << endl;
     cout << "Fecha: " << this->fecha << endl;
@@ -61,34 +61,43 @@ void Acta::mostrarActa(){
     cout << jurado2.getNombrePersona() << endl;
 }
 
+//Metodo que nos permite obtener el rol de la persona
 int Acta::getRolDirector()
 {
     return this->director.getRolPersona();
 }
+
+//Metodo que nos permite conocer el id del director de un trabajo
 int Acta::getIdDirector()
 {
     return this->director.getId();
 }
 
+//Metodo que nos permite obtener el id del jurado 1
 int Acta::getIdJurado1()
 {
     return this->jurado1.getId();
 }
 
+//Metodo que nos permite obtener el id del jurado 2
 int Acta::getIdJurado2()
 {
     return this->jurado2.getId();
 }
 
+//Metodo que nos permite obtener el rol de jurado 1 para utilizarlo en comprobaciones
 int Acta::getRolJurado1()
 {
     return this->jurado1.getRolPersona();
 }
+
+//Metodo que nos permite obtener el rol de jurado 2 para utilizarlo en comprobaciones
 int Acta::getRolJurado2()
 {
     return this->jurado2.getRolPersona();
 }
 
+//Metodo que nos permite obtener el metodo el id de un acta para usarse en comprobaciones y ciclos
 int Acta::getIdActa()
 {
     return this->numeroId;
@@ -99,6 +108,7 @@ TipoDeTrabajo Acta::getTipoDeTrabajo()
     return this->tipoDeTrabajo;
 }
 
+//Metodo que nos permite llenar la tabla de criterios de DetalleActa
 void Acta::crearCriterios()
 {
     int x;
@@ -124,11 +134,12 @@ void Acta::crearCriterios()
     }
 }
 
+//Metodo que nos permite acceder al valor contenido en el atributo estadoActa  de acta.h
 EstadoActa Acta::getEstadoActa()
 {
     return this->estadoActa;
 }
-
+//Metodo que permite mostrar en pantalla
 void Acta::mostrarDetallesDeActa()
 {
     for(list<DetalleActa>::iterator itActas = listaDetallesActa.begin(); itActas != listaDetallesActa.end(); itActas++)
@@ -136,7 +147,7 @@ void Acta::mostrarDetallesDeActa()
             itActas->mostrarDetallesDeActa();
         }
 }
-
+//Este metodo recoge la lista de notas de detalleActa y las recorre para poder sumarlas todas y obtener una nota final usando un algoritmo
 void Acta::metodoCalcularNotaFinal()
 {
         float notaPonderadaAcumulada = 0;
@@ -154,31 +165,37 @@ void Acta::metodoCalcularNotaFinal()
     cout << "La nota final es: " << notaPonderadaAcumulada << endl;
 }
 
+//Metodo que nos permite acceder al valor de nota final para usarlo en comprobaciones
 float Acta::getNotaFinal()
 {
     return this->notaFinal;
 }
 
+//Metodo para imprimir en pantalla los datos de Jurado 1
 void Acta::mostrarJurado1()
 {
     jurado1.mostrarPersona();
 }
 
+//Metodo para imprimir en pantalla los datos de Jurado 1
 void Acta::mostrarJurado2()
 {
     jurado2.mostrarPersona();
 }
 
+//Metodo que nos permite cambiar el estado acta a cerrado
 void Acta::cambiarEstadoActa()
 {
     this->estadoActa = cerrado;
 }
 
+//Metodo que nos permite acceder al estado de la calificacion:pendiente, aprrobado,rechazado
 EstadoCalificacion Acta::getEstadoCalificacion()
 {
     return this->estadoCalificacion;
 }
 
+//Metodo que crea un archivo .txt con los detalles de acta y criterios
 void Acta::metodoCrearTxt()
 {
     ofstream archivo;
@@ -205,11 +222,12 @@ void Acta::metodoCrearTxt()
         else
         {
             archivo << "Tipo de trabajo: Investigacion" << endl;
-        }               
+        }
         archivo << "Jurado 1: ";
         archivo << jurado1.getNombrePersona() << endl;
         archivo << "Jurado 2: ";
         archivo << jurado2.getNombrePersona() << endl;
+<<<<<<< HEAD
         }
         archivo.close();
         for (list<DetalleActa>::iterator it = listaDetallesActa.begin(); it != listaDetallesActa.end(); it++)
@@ -217,4 +235,14 @@ void Acta::metodoCrearTxt()
             it->detallesActaParaTxt(nombreArchivo);
         }
 }
+=======
+    }
+    archivo.close();
+    for (list<DetalleActa>::iterator it = listaDetallesActa.begin(); it != listaDetallesActa.end(); it++)
+    {
+        it->detallesActaParaTxt(nombreArchivo);
+    }
+}
+
+>>>>>>> 524ffdba01f85e8053ca7a938b4ac1fc3f86c603
 
