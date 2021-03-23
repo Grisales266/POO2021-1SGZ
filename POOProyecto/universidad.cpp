@@ -186,11 +186,11 @@ void Universidad::mostrarTodasActa()
 void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo es de tipo Industria o Investigacion
 {
     int acumuladorTrabajosDeTipoA = 0, acumuladorTrabajosDeTipoB = 0;
-    cout<<"Id's actas trabajo de tipo Industria: ";
+    cout << "Id's actas trabajo de tipo Industria: ";
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)//Para hallar de tipo A
         if(itActas->getTipoDeTrabajo() == industrial )//TODO Asignar condicion de busqueda
         {
-            cout << " " << itActas->getIdActa()<<endl;
+            cout << itActas->getIdActa() << " - ";
             acumuladorTrabajosDeTipoA += 1;
         }
 
@@ -198,7 +198,7 @@ void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo 
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)//Para hallar de tipo B
         if(itActas->getTipoDeTrabajo() == investigacion )//TODO Asignar condicion de busqueda
         {
-            cout << " " << itActas->getIdActa()<<endl;
+            cout << itActas->getIdActa() << " - ";
             acumuladorTrabajosDeTipoB += 1;
         }
     cout << "\n=========================\n";
@@ -251,7 +251,7 @@ void Universidad::consultarTrabajosDeUnDirector()
     {
         if(itActas->getIdDirector() == idProfesorBuscado && itActas->getRolDirector() == 1)
         {
-            cout<<itActas->getIdActa()<<endl;
+            cout<<itActas->getIdActa()<< " - ";
         }
     }
     cout << "\n==============================\n";
@@ -397,12 +397,12 @@ void Universidad::consultarActasPendienteORechazadas()
 void Universidad::mostrarJuradosInternosOExternos()
 {
     int tipoDeJuradoBuscado;
-    cout << "Ingrese el tipo de jurado que busca: \n1.Interno\n2.Externo\n------------>: " << endl;
+    cout << "Ingrese el tipo de jurado que busca: \n1.Interno\n2.Externo\nOpcion: ";
     cin >> tipoDeJuradoBuscado;
     switch (tipoDeJuradoBuscado)
     {
         case 1:
-            cout<<"Jurados Internos: ";
+            cout<<"Jurados Internos: " << endl;
             for (list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end(); itPersonas++)
             {
                 if (itPersonas->getRolPersona() == 3 && itPersonas->getObtenerTipoInternoExternoJurado == 1)
@@ -413,7 +413,7 @@ void Universidad::mostrarJuradosInternosOExternos()
             break;
             /*TODO reasignar valor con el cual se define externo y externo*/
         case 2:
-            cout<<"Jurados Externos: ";
+            cout<<"Jurados Externos: " << endl;
             for (list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end(); itPersonas++)
             {
                 if (itPersonas->getRolPersona() == 3 && itPersonas->getObtenerTipoInternoExternoJurado == 2)

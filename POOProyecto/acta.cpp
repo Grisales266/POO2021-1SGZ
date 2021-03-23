@@ -24,10 +24,10 @@ void Acta::mostrarActa(){
     cout << autor.getNombrePersona() << endl;
     cout << "Nombre de trabajo: " << this->nombreTrabajo << endl;
     if(this->tipoDeTrabajo == 1){
-        cout << "Tipo de trabajo: Industrial";
+        cout << "Tipo de trabajo: Industrial"<< endl;
     }
     else{
-        cout << "Tipo de trabajo: Investigacion";
+        cout << "Tipo de trabajo: Investigacion" << endl;
     }
     cout << "Director: ";
     cout << director.getNombrePersona() << endl;
