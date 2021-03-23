@@ -176,6 +176,6 @@ void Acta::cambiarEstadoActa()
 
 EstadoCalificacion Acta::getEstadoCalificacion()
 {
-    return this->tipoDeTrabajo
+    return this->estadoCalificacion;
 
 }
