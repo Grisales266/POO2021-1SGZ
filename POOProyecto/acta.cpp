@@ -23,7 +23,12 @@ void Acta::mostrarActa(){
     cout << "Autor: ";
     cout << autor.getNombrePersona() << endl;
     cout << "Nombre de trabajo: " << this->nombreTrabajo << endl;
-    cout << "Tipo de trabajo: " << this->tipoDeTrabajo << endl;
+    if(this->tipoDeTrabajo == 1){
+        cout << "Tipo de trabajo: Industrial";
+    }
+    else{
+        cout << "Tipo de trabajo: Investigacion";
+    }
     cout << "Director: ";
     cout << director.getNombrePersona() << endl;
     cout << "Codirector: ";
@@ -114,7 +119,7 @@ void Acta::metodoCalcularNotaFinal(){
         notaPonderadaAcumulada += it->getNotaPonderada();
     }
     this->notaFinal = notaPonderadaAcumulada;
-    cout << "La nota final es: " << notaPonderadaAcumulada;
+    cout << "La nota final es: " << notaPonderadaAcumulada << endl;
 }
 
 float Acta::getNotaFinal()
