@@ -173,3 +173,9 @@ void Acta::cambiarEstadoActa()
 {
     this->estadoActa = cerrado;
 }
+
+EstadoCalificacion Acta::getEstadoCalificacion()
+{
+    return this->tipoDeTrabajo
+
+}

@@ -377,7 +377,7 @@ void Universidad::calcularNotaFinal()
         }
     }
 }
-
+//Este metodpo pregunta el tipo de estado de calificacion que desea consultar y muestra las actas que cumplen ese tipo
 void Universidad::consultarActasPendienteORechazadas()
 {
     int tipoDeActa;
@@ -389,22 +389,17 @@ void Universidad::consultarActasPendienteORechazadas()
             cout<<"Actas rechazadas";
             for (list<Acta>::iterator itActa = listaDeActas.begin(); itActa != listaDeActas.end(); itActa++)
             {
-<<<<<<< HEAD
                 if (itActa->getNotaFinal() <= 3.5 ) //getNotaFinal debe ser de tipo float
-=======
-                if (itActa->getNotaFinal() < 3 ) //getNotaFinal debe ser de tipo float
->>>>>>> origin
                 {
                     itActa->mostrarActa();
                 }
             }
-            //TODO revisar asignacion del tipo de valor que retorna la funciona getNotaFinal
 
         case 2:
             cout<<"Actas pendientes";
             for (list<Acta>::iterator itActa = listaDeActas.begin(); itActa != listaDeActas.end(); itActa++)
             {
-                if (itActa->getNotaFinal() >= 3 && itActa->getNotaFinal() < 3.5 ) //getNotaFinal debe ser de tipo float
+                if (itActa->getEstadoCalificacion() == pendiente )
                 {
                     itActa->mostrarActa();
                 }
