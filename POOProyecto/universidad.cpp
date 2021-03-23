@@ -389,7 +389,11 @@ void Universidad::consultarActasPendienteORechazadas()
             cout<<"Actas rechazadas";
             for (list<Acta>::iterator itActa = listaDeActas.begin(); itActa != listaDeActas.end(); itActa++)
             {
+<<<<<<< HEAD
                 if (itActa->getNotaFinal() <= 3.5 ) //getNotaFinal debe ser de tipo float
+=======
+                if (itActa->getNotaFinal() < 3 ) //getNotaFinal debe ser de tipo float
+>>>>>>> origin
                 {
                     itActa->mostrarActa();
                 }
@@ -400,7 +404,7 @@ void Universidad::consultarActasPendienteORechazadas()
             cout<<"Actas pendientes";
             for (list<Acta>::iterator itActa = listaDeActas.begin(); itActa != listaDeActas.end(); itActa++)
             {
-                if (itActa->getNotaFinal() <=  3 ) //getNotaFinal debe ser de tipo float
+                if (itActa->getNotaFinal() >= 3 && itActa->getNotaFinal() < 3.5 ) //getNotaFinal debe ser de tipo float
                 {
                     itActa->mostrarActa();
                 }
