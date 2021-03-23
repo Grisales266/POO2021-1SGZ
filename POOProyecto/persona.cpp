@@ -1,8 +1,8 @@
 #include "persona.h"
-
+//constructor por defecto
 Persona::Persona(){
 }
-
+//Constructor por parametros
 Persona::Persona(string nombre, int id, string email, int rol, string tipoJurado){
     this->nombre = nombre;
     this->id = id;
@@ -11,10 +11,11 @@ Persona::Persona(string nombre, int id, string email, int rol, string tipoJurado
     this->tipoJurado = tipoJurado;
 }
 
+//Metodo que nos permite acceder al id de una persona y utilizarlo en comprobaciones
 int Persona::getId(){
     return this->id;
 }
-
+//Metodo que muestra la informacion de una persona en pantalla
 void Persona::mostrarPersona(){
     string rolTemporal;
     cout << "|===============================| \n";
@@ -38,16 +39,17 @@ void Persona::mostrarPersona(){
         cout << " rol: " << rolTemporal << endl;
     }
 }
-
+//Metodo que nos permite acceder al nombre de una persona
 string Persona::getNombrePersona(){
     return this->nombre;
 }
 
+//Metodo que nos permite obtener el rol de una persona para ser usado en comprobaciones
 int Persona::getRolPersona()
 {
     return this->rol;
 }
-
+//Metodo que nos permite acceder al tipo de un jurado: Interno,Externo. Para usarse en comprobaciones.
 string Persona::getObtenerTipoInternoExternoJurado()
 {
     return this->tipoJurado;
