@@ -174,7 +174,11 @@ void Acta::cambiarEstadoActa()
     this->estadoActa = cerrado;
 }
 
-<<<<<<< HEAD
+EstadoCalificacion Acta::getEstadoCalificacion()
+{
+    return this->estadoCalificacion;
+}
+
 void Acta::metodoCrearTxt()
 {
     ofstream archivo;
@@ -212,10 +216,5 @@ void Acta::metodoCrearTxt()
         {
             it->detallesActaParaTxt(nombreArchivo);
         }
-=======
-EstadoCalificacion Acta::getEstadoCalificacion()
-{
-    return this->tipoDeTrabajo
-
->>>>>>> 9fae6460ed8b7db99dbfa4af28a2e481d1f9a730
 }
+

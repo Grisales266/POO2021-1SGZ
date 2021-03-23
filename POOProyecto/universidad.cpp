@@ -11,6 +11,7 @@ Universidad::Universidad(list<Persona> listaDePersonas, list<Acta> listaDeActas)
     this->listaDePersonas = listaDePersonas;
 }
 
+/*Método para crear el acta con cada uno de sus datos*/
 void Universidad::crearActa()
 {   
     TipoDeTrabajo tipoDeTrabajo;
@@ -21,7 +22,7 @@ void Universidad::crearActa()
     cout << "Fecha: " << fechaU << endl;
     cout << "Ingrese el numero id de acta: ";
     cin >> idActa;
-    if(comprobarExistenciaActa(idActa) == 1){
+    if(comprobarExistenciaActa(idActa) == 1){/*Comprobar existencias*/
         cout << "El acta ya existe.\n";
         return ;
     }
@@ -69,12 +70,14 @@ void Universidad::crearActa()
     cout << "Ingrese el id del jurado 2: ";
     cin >> idJurado2;
     jurado2Temporal = buscarPersona(idJurado2);
+    /*Se guardan los datos en una lista de actas*/
     this->listaDeActas.push_back(Acta(fechaU, idActa, autorTemporal, nombreTrabajoU, tipoDeTrabajo, directorTemporal, codirectorTemporal, jurado1Temporal, jurado2Temporal, cantidadCriterios));
     cout << "\n==============================\n";
     cout << "Acta de grado creada con exito.\n";
     cout << "==============================\n";
 }
 
+/*Método para crear personas que serán usadas en las actas y demás métodos*/
 void Universidad::crearPersona()
 {
     string nombreU, emailU, tipoJurado;
@@ -87,7 +90,7 @@ void Universidad::crearPersona()
     if(idU == idInexistente){
         setPersonasNulas();
     }
-    else if(comprobarExistenciaPersona(idU) == 1){
+    else if(comprobarExistenciaPersona(idU) == 1){/*Comprobar existencias*/
         cout << "La persona ya existe.\n";
         return ;
     }
@@ -106,12 +109,14 @@ void Universidad::crearPersona()
             tipoJurado = "Externo";
         }
     }
+    /*Se guardan los datos en una lista de personas que se utilizarán en otros métodos*/
     this->listaDePersonas.push_back(Persona(nombreU, idU, emailU, rolU, tipoJurado));
     cout << "\n==============================\n";
     cout << "Persona creada con exito.\n";
     cout << "==============================\n";
 }
 
+/*Método para comprobar la existencia de una persona*/
 int Universidad::comprobarExistenciaPersona(int id)
 {
     for(list<Persona>::iterator it = listaDePersonas.begin(); it != listaDePersonas.end(); it++)
