@@ -534,6 +534,7 @@ void Universidad::crearTxt(){
         if(it->getIdActa() == idActa)
         {
             it->metodoCrearTxt();
+            cout<< "Archivo .txt creado con exito."<<endl;
         }
     }
     

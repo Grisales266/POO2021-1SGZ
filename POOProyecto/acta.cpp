@@ -210,10 +210,14 @@ void Acta::metodoCrearTxt()
     else
     {
         archivo << "==================" << endl;
+        archivo << "Autor: ";// TODO preguntar a Santiaago this->autor << endl;
+        archivo << autor.getNombrePersona() << endl;
         archivo << "Fecha: " << this->fecha << endl;
         archivo << "Acta: " << this->numeroId << endl;
-        archivo << "Autor: ";
-        archivo << autor.getNombrePersona() << endl;
+        archivo << "Jurado 1: ";
+        archivo << jurado1.getNombrePersona() << endl;
+        archivo << "Jurado 2: ";
+        archivo << jurado2.getNombrePersona() << endl;
         archivo << "Nombre de trabajo: " << this->nombreTrabajo << endl;
         if(this->tipoDeTrabajo == 1)
         {
@@ -223,10 +227,7 @@ void Acta::metodoCrearTxt()
         {
             archivo << "Tipo de trabajo: Investigacion" << endl;
         }
-        archivo << "Jurado 1: ";
-        archivo << jurado1.getNombrePersona() << endl;
-        archivo << "Jurado 2: ";
-        archivo << jurado2.getNombrePersona() << endl;
+
     }
     archivo.close();
     for (list<DetalleActa>::iterator it = listaDetallesActa.begin(); it != listaDetallesActa.end(); it++)
