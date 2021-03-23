@@ -37,10 +37,9 @@ class Universidad{
         //void consultarActasPorEstados();
         void mostrarJuradosInternosOExternos();
         void consultarActasPendienteORechazadas();
-        void consultarCriteriosDeEvalucacionDeActa();
         void eliminarActaPorId();
         int comprobarSiElementoEnUnaLista(list<int> , int );
-
+        void cerrarActaPorId();
 };
 
 

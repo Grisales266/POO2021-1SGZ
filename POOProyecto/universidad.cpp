@@ -1,9 +1,11 @@
 #include "universidad.h"
 const int idInexistente = 99999;
 
+/*Constructor por defecto*/
 Universidad::Universidad(){
 }
 
+/*Constructor por parámetros*/
 Universidad::Universidad(list<Persona> listaDePersonas, list<Acta> listaDeActas){
     this->listaDeActas = listaDeActas;
     this->listaDePersonas = listaDePersonas;
@@ -186,11 +188,11 @@ void Universidad::mostrarTodasActa()
 void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo es de tipo Industria o Investigacion
 {
     int acumuladorTrabajosDeTipoA = 0, acumuladorTrabajosDeTipoB = 0;
-    cout<<"Id's actas trabajo de tipo Industria: ";
+    cout << "Id's actas trabajo de tipo Industria: ";
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)//Para hallar de tipo A
         if(itActas->getTipoDeTrabajo() == industrial )//TODO Asignar condicion de busqueda
         {
-            cout << " " << itActas->getIdActa()<<endl;
+            cout << itActas->getIdActa() << " - ";
             acumuladorTrabajosDeTipoA += 1;
         }
 
@@ -198,7 +200,7 @@ void Universidad::consultarTipoDeTrabajo()//Funcion que encuentra si el trabajo 
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)//Para hallar de tipo B
         if(itActas->getTipoDeTrabajo() == investigacion )//TODO Asignar condicion de busqueda
         {
-            cout << " " << itActas->getIdActa()<<endl;
+            cout << itActas->getIdActa() << " - ";
             acumuladorTrabajosDeTipoB += 1;
         }
     cout << "\n=========================\n";
@@ -256,7 +258,7 @@ void Universidad::consultarTrabajosDeUnDirector()
     {
         if(itActas->getIdDirector() == idProfesorBuscado && itActas->getRolDirector() == 1)
         {
-            cout<<itActas->getIdActa()<<endl;
+            cout<<itActas->getIdActa()<< " - ";
         }
     }
     cout << "\n==============================\n";
@@ -271,7 +273,7 @@ void Universidad::consultarTrabajosDeUnJurado()
     cin >> idJuradoBuscado;
     if(!comprobarExistenciaPersona(idJuradoBuscado) )
     {
-        cout<<"La persona no existe"<<endl;
+        cout<<"La persona no existe."<<endl;
         return;
     }
     cout << "El jurado de id " << idJuradoBuscado << " esta en las actas de id: "; 
@@ -369,22 +371,29 @@ void Universidad::calcularNotaFinal()
     }
     for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
     {
-        it->metodoCalcularNotaFinal();
+        if(it->getIdActa() == idActa)
+        {
+            it->metodoCalcularNotaFinal();
+        }
     }
 }
 
 void Universidad::consultarActasPendienteORechazadas()
 {
     int tipoDeActa;
-    cout << "Ingrese el tipo de acta que busca: \n1.Pendiente \n2.Rechazada\n------------>: " << endl;
+    cout << "Ingrese el tipo de acta que busca: \n1.Pendiente \n2.Rechazada\nOpcion: ";
     cin >> tipoDeActa;
     switch (tipoDeActa)
     {
         case 1:
-            cout<<"Rechazadas";
+            cout<<"Actas rechazadas";
             for (list<Acta>::iterator itActa = listaDeActas.begin(); itActa != listaDeActas.end(); itActa++)
             {
+<<<<<<< HEAD
+                if (itActa->getNotaFinal() <= 3.5 ) //getNotaFinal debe ser de tipo float
+=======
                 if (itActa->getNotaFinal() < 3 ) //getNotaFinal debe ser de tipo float
+>>>>>>> origin
                 {
                     itActa->mostrarActa();
                 }
@@ -392,7 +401,7 @@ void Universidad::consultarActasPendienteORechazadas()
             //TODO revisar asignacion del tipo de valor que retorna la funciona getNotaFinal
 
         case 2:
-            cout<<"ActasPendientes";
+            cout<<"Actas pendientes";
             for (list<Acta>::iterator itActa = listaDeActas.begin(); itActa != listaDeActas.end(); itActa++)
             {
                 if (itActa->getNotaFinal() >= 3 && itActa->getNotaFinal() < 3.5 ) //getNotaFinal debe ser de tipo float
@@ -402,17 +411,20 @@ void Universidad::consultarActasPendienteORechazadas()
             }
 
     }
+    cout << "\n==============================\n";
+    cout << "Operacion realizada con exito.\n";
+    cout << "==============================\n";
 }
 
 void Universidad::mostrarJuradosInternosOExternos()
 {
     int tipoDeJuradoBuscado;
-    cout << "Ingrese el tipo de jurado que busca: \n1.Interno\n2.Externo\n------------>: " << endl;
+    cout << "Ingrese el tipo de jurado que busca: \n1.Interno\n2.Externo\nOpcion: ";
     cin >> tipoDeJuradoBuscado;
     switch(tipoDeJuradoBuscado)
     {
         case 1:
-            cout<<"Jurados Internos: ";
+            cout<<"Jurados Internos: " << endl;
             for (list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end(); itPersonas++)
             {
                 if (itPersonas->getRolPersona() == 3 && itPersonas->getObtenerTipoInternoExternoJurado() == "Interno")
@@ -421,9 +433,8 @@ void Universidad::mostrarJuradosInternosOExternos()
                 }
             }
             break;
-            /*TODO reasignar valor con el cual se define externo y externo*/
         case 2:
-            cout<<"Jurados Externos: ";
+            cout<<"Jurados Externos: " << endl;
             for (list<Persona>::iterator itPersonas = listaDePersonas.begin(); itPersonas != listaDePersonas.end(); itPersonas++)
             {
                 if (itPersonas->getRolPersona() == 3 && itPersonas->getObtenerTipoInternoExternoJurado() == "Externo")
@@ -433,36 +444,56 @@ void Universidad::mostrarJuradosInternosOExternos()
             }
             break;
     }
-}
-
-void Universidad::consultarCriteriosDeEvalucacionDeActa()
-{
-    int actaConsultarSusCriterios;
-    cout<<"Ingrese el ID de la acta de la que desea conocer los criterios: "<<endl;
-    cin>>actaConsultarSusCriterios;
-    for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end(); itActas++)
-    {
-        if(itActas->getIdActa() == actaConsultarSusCriterios)
-        {
-            itActas->getDetallesActa();
-
-        }
-    }
+    cout << "\n==============================\n";
+    cout << "Operacion realizada con exito.\n";
+    cout << "==============================\n";
 }
 
 void Universidad::eliminarActaPorId()
 {
     int idActaAEliminar;
-    cout<<"Ingrese el id de la acta que desea elimimar: "<<endl;
+    cout<<"Ingrese el id de la acta que desea eliminar: ";
     cin>>idActaAEliminar;
+    if(comprobarExistenciaActa(idActaAEliminar) != 1)
+    {
+        cout << "\n==============================\n";
+        cout << "El acta no existe.\n";
+        cout << "==============================\n";
+        return ;
+    }
     for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)
     {
         if(itActas->getIdActa() == idActaAEliminar)
         {
+            cout << "Entro\n";
             listaDeActas.erase(itActas);
-            cout<<"La acta ha sido encontrada y eliminada"<<endl;
             break;
         }
     }
-git
+    cout << "\n==============================\n";
+    cout << "Operacion realizada con exito.\n";
+    cout << "==============================\n";
+}
+
+void Universidad::cerrarActaPorId(){
+    int idActaACerrar;
+    cout<<"Ingrese el id de la acta que desea cerrar: "<<endl;
+    cin>>idActaACerrar;
+    if(comprobarExistenciaActa(idActaACerrar) != 1)
+    {
+        cout << "\n==============================\n";
+        cout << "El acta no existe.\n";
+        cout << "==============================\n";
+        return ;
+    }
+    for(list<Acta>::iterator itActas = listaDeActas.begin(); itActas != listaDeActas.end();itActas++)
+    {
+        if(itActas->getIdActa() == idActaACerrar)
+        {
+            itActas->cambiarEstadoActa();
+        }
+    }
+    cout << "\n==============================\n";
+    cout << "Operacion realizada con exito.\n";
+    cout << "==============================\n";
 }

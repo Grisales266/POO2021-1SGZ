@@ -9,7 +9,7 @@ int main(){
     Universidad javeriana;
     cout << "Bienvenido al menu del programa.\n";
     do{
-        cout << "1.Crear personas.\n2.Crear actas de grado.\n3.Crear criterios y diligenciar calificaciones.\n4.Calcular nota final.\n5.Mostrar Personas.\n6.Mostrar Actas de grado.\n7.Mostrar detalles de acta.\n8.Consultar actas por tipo de trabajo.\n9.Consultar trabajos en los cuales ha participado un jurado.\n10. Consultar trabajos de un director.\n11.Consultar lista de jurados que han participado en los trabajos.\n12.Mostrar jurados internos o externos.\n13.Consultar actas pendientes o rechazadas.\n14.Salir.\nOpcion: ";
+        cout << "1.Crear personas.\n2.Crear actas de grado.\n3.Crear criterios y diligenciar calificaciones.\n4.Calcular nota final.\n5.Mostrar Personas.\n6.Mostrar Actas de grado.\n7.Mostrar detalles de acta.\n8.Consultar actas por tipo de trabajo.\n9.Consultar trabajos en los cuales ha participado un jurado.\n10.Consultar trabajos de un director.\n11.Consultar lista de jurados que han participado en los trabajos.\n12.Mostrar jurados internos o externos.\n13.Consultar actas pendientes o rechazadas.\n14.Cerrar acta.\n15.Eliminar acta.\n16.Salir.\nOpcion: ";
         cin >> opcion;
         switch(opcion){
             case 1:
@@ -92,10 +92,22 @@ int main(){
                 break;
             case 14:
                 cout << "\n=========================\n";
+                cout << "Ha elegido poner el estado del acta en cerrado.\n";
+                cout << "=========================\n";
+                javeriana.cerrarActaPorId();
+                break;
+            case 15:
+                cout << "\n=========================\n";
+                cout << "Ha elegido eliminar acta.\n";
+                cout << "=========================\n";
+                javeriana.eliminarActaPorId();
+                break;
+            case 16:
+                cout << "\n=========================\n";
                 cout << "Gracias por usar nuestro programa.\n";
                 cout << "=========================\n";
                 break;
         }
-    }while(opcion != 14);
+    }while(opcion != 16);
     return 0;
 }
