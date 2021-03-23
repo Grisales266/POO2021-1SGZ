@@ -1,6 +1,7 @@
 #ifndef CLASECRITERIOS_H
 #define CLASECRITERIOS_H
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 class Criterio{
@@ -12,6 +13,7 @@ class Criterio{
         Criterio();
         Criterio(string, int, float);
         void mostrarCriterio();
+        void mostrarCriterioTxt();
 };
 
 #endif

@@ -40,6 +40,7 @@ class Universidad{
         void eliminarActaPorId();
         int comprobarSiElementoEnUnaLista(list<int> , int );
         void cerrarActaPorId();
+        void crearTxt();
 };
 
 

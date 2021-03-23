@@ -14,3 +14,10 @@ void Criterio::mostrarCriterio(){
     cout << "Descripcion de criterio " << this->numeroCriterio <<  ": " << this->nombreCriterio << endl;
     cout << "Ponderado de criterio " << this->numeroCriterio <<  ": "  << this->ponderadoCriterio << "%" << endl;
 }
+
+void Criterio::mostrarCriterioTxt(){
+    ofstream archivo;
+    archivo << "Numero de criterio: " << this->numeroCriterio << endl;
+    archivo << "Descripcion de criterio " << this->numeroCriterio <<  ": " << this->nombreCriterio << endl;
+    archivo << "Ponderado de criterio " << this->numeroCriterio <<  ": "  << this->ponderadoCriterio << "%" << endl;
+}

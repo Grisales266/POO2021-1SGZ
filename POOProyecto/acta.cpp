@@ -174,8 +174,48 @@ void Acta::cambiarEstadoActa()
     this->estadoActa = cerrado;
 }
 
+<<<<<<< HEAD
+void Acta::metodoCrearTxt()
+{
+    ofstream archivo;
+    string nombreArchivo = this->nombreTrabajo;
+    nombreArchivo += ".txt";
+    archivo.open(nombreArchivo.c_str(), ios::out);
+    if(archivo.fail())
+    {
+        cout << "Fallo al abrir el archivo.\n";
+        exit(1);
+    }
+    else
+    {
+        archivo << "==================" << endl;
+        archivo << "Fecha: " << this->fecha << endl;
+        archivo << "Acta: " << this->numeroId << endl;
+        archivo << "Autor: ";
+        archivo << autor.getNombrePersona() << endl;
+        archivo << "Nombre de trabajo: " << this->nombreTrabajo << endl;
+        if(this->tipoDeTrabajo == 1)
+        {
+            archivo << "Tipo de trabajo: Industrial"<< endl;
+        }
+        else
+        {
+            archivo << "Tipo de trabajo: Investigacion" << endl;
+        }               
+        archivo << "Jurado 1: ";
+        archivo << jurado1.getNombrePersona() << endl;
+        archivo << "Jurado 2: ";
+        archivo << jurado2.getNombrePersona() << endl;
+        }
+        archivo.close();
+        for (list<DetalleActa>::iterator it = listaDetallesActa.begin(); it != listaDetallesActa.end(); it++)
+        {
+            it->detallesActaParaTxt(nombreArchivo);
+        }
+=======
 EstadoCalificacion Acta::getEstadoCalificacion()
 {
     return this->estadoCalificacion;
 
+>>>>>>> 9fae6460ed8b7db99dbfa4af28a2e481d1f9a730
 }
