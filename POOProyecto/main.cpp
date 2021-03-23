@@ -104,10 +104,16 @@ int main(){
                 break;
             case 16:
                 cout << "\n=========================\n";
+                cout << "Crear archivo para guardar actas.\n";
+                cout << "=========================\n";
+                javeriana.crearTxt();
+                break;
+            case 17:
+                cout << "\n=========================\n";
                 cout << "Gracias por usar nuestro programa.\n";
                 cout << "=========================\n";
                 break;
         }
-    }while(opcion != 16);
+    }while(opcion != 17);
     return 0;
 }

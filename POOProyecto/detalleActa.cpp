@@ -26,3 +26,18 @@ void DetalleActa::mostrarDetallesDeActa(){
 float DetalleActa::getNotaPonderada(){
     return this->notaPonderada;
 }
+
+void DetalleActa::detallesActaParaTxt(string nombreArchivo)
+{
+    ofstream archivo;
+    archivo.open(nombreArchivo.c_str(), ios::app);
+    archivo << "|===============================| \n";
+    archivo << " Criterios: " << endl;
+    this->criterio.mostrarCriterioTxt();
+    archivo << "Nota jurado 1: " << this->notaJurado1 << endl;
+    archivo << "Nota jurado 2: " << this->notaJurado2 << endl;
+    archivo << "Comentarios de jurados: " << this->comentarioJurado << endl;
+    archivo << "Nota ponderado: " << this->notaPonderada << endl;
+    archivo << "Nota promedio: " << this->notaPromedio << endl;
+    archivo.close();
+}

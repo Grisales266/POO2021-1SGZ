@@ -1,5 +1,6 @@
 #ifndef CLASEACTA_H
 #define CLASEACTA_H
+#include <fstream>
 #include <iostream>
 #include "persona.h"
 #include "detalleActa.h"
@@ -57,6 +58,7 @@ class Acta{
         void metodoCalcularNotaFinal();
         float getNotaFinal();
         void cambiarEstadoActa();
+        void metodoCrearTxt();
 };
 
 #endif

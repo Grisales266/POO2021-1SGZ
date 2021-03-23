@@ -389,11 +389,7 @@ void Universidad::consultarActasPendienteORechazadas()
             cout<<"Actas rechazadas";
             for (list<Acta>::iterator itActa = listaDeActas.begin(); itActa != listaDeActas.end(); itActa++)
             {
-<<<<<<< HEAD
                 if (itActa->getNotaFinal() <= 3.5 ) //getNotaFinal debe ser de tipo float
-=======
-                if (itActa->getNotaFinal() < 3 ) //getNotaFinal debe ser de tipo float
->>>>>>> origin
                 {
                     itActa->mostrarActa();
                 }
@@ -496,4 +492,25 @@ void Universidad::cerrarActaPorId(){
     cout << "\n==============================\n";
     cout << "Operacion realizada con exito.\n";
     cout << "==============================\n";
+}
+
+void Universidad::crearTxt(){
+    int idActa;
+    cout << "Ingrese el id del acta a la que quiere crear el archivo: ";
+    cin >> idActa;
+    if(comprobarExistenciaActa(idActa) != 1)
+    {
+        cout << "\n==============================\n";
+        cout << "El acta no existe.\n";
+        cout << "==============================\n";
+        return ;
+    }
+    for (list<Acta>::iterator it = listaDeActas.begin(); it != listaDeActas.end(); it++)
+    {
+        if(it->getIdActa() == idActa)
+        {
+            it->metodoCrearTxt();
+        }
+    }
+    
 }
