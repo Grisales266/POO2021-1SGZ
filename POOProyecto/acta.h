@@ -48,6 +48,7 @@ class Acta{
         int getRolJurado2();
         int getIdDirector();
         int getRolDirector();
+        EstadoCalificacion getEstadoCalificacion();
         int getRolActa();
         EstadoActa getEstadoActa();
         TipoDeTrabajo getTipoDeTrabajo();
