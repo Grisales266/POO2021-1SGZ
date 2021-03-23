@@ -209,31 +209,44 @@ void Acta::metodoCrearTxt()
     }
     else
     {
-        archivo << "==================" << endl;
-        archivo << "Autor: ";// TODO preguntar a Santiaago this->autor << endl;
+        archivo << "                    Facultad de Ingenieria                  " << endl;
+        archivo << "                    Maestria en Ingenieria                  " << endl;
+        archivo << "\n";
+        archivo << "\nActa: " << this->numeroId;
+        archivo << "                                            Fecha: " << this->fecha << endl;
+        archivo << "\n             ACTA DE EVALUACION DE TRABAJO DE GRADO          \n" << endl;
+        archivo << "Trabajo de grado denominado: '" << this->nombreTrabajo << "'." << endl;
+        archivo << "\nAutor: ";
         archivo << autor.getNombrePersona() << endl;
-        archivo << "Fecha: " << this->fecha << endl;
-        archivo << "Acta: " << this->numeroId << endl;
-        archivo << "Jurado 1: ";
+        archivo << "\nCodirector: ";
+        archivo << codirector.getNombrePersona() << endl;
+        archivo << "\nJurado 1: ";
         archivo << jurado1.getNombrePersona() << endl;
-        archivo << "Jurado 2: ";
+        archivo << "\nJurado 2: ";
         archivo << jurado2.getNombrePersona() << endl;
-        archivo << "Nombre de trabajo: " << this->nombreTrabajo << endl;
+        archivo << "\nEnfasis en: Sistemas y Computacion." << endl;
         if(this->tipoDeTrabajo == 1)
         {
-            archivo << "Tipo de trabajo: Industrial"<< endl;
+            archivo << "\nModalidad: Industrial.\n"<< endl;
         }
         else
         {
-            archivo << "Tipo de trabajo: Investigacion" << endl;
+            archivo << "\nModalidad: Investigacion.\n" << endl;
         }
-
+    archivo << "En atencion al desarrollo de este trabajo de grado y al documento y sutentacion que presento el(la) autor(a), los jurados damos las siguientes calificaciones parciales y observaciones (los criterios a evaluar y sus ponderaciones se estipulan en el articulo 7.1 de las directrices para trabajo de grado de maestria).\n" << endl;
+    archivo << "Criterios: \n" << endl;
     }
     archivo.close();
     for (list<DetalleActa>::iterator it = listaDetallesActa.begin(); it != listaDetallesActa.end(); it++)
     {
         it->detallesActaParaTxt(nombreArchivo);
     }
+    archivo.open(nombreArchivo.c_str(), ios::app);
+    archivo << "\nComo resultado de estas calificaciones parciales y sus ponderaciones, la calificacion del trabajo de grado es: " << this->notaFinal << endl;
+    archivo << "\nCalificacion en numeros: " << this->notaFinal << endl;
+    archivo << "\n\n\n";
+    archivo << "        _________________________           ________________________" << endl;
+    archivo << "           Firma del jurado 1                   Firma del jurado 2";
 }
 
 

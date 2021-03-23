@@ -14,6 +14,9 @@ class Criterio{
         Criterio(string, int, float);
         void mostrarCriterio();
         void mostrarCriterioTxt();
+        int getNumeroCriterio();
+        string getNombreCriterio();
+        float getPonderadoCriterio();
 };
 
 #endif

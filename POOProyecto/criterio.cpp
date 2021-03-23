@@ -25,3 +25,18 @@ void Criterio::mostrarCriterioTxt(){
     archivo << "Descripcion de criterio " << this->numeroCriterio <<  ": " << this->nombreCriterio << endl;
     archivo << "Ponderado de criterio " << this->numeroCriterio <<  ": "  << this->ponderadoCriterio << "%" << endl;
 }
+
+int Criterio::getNumeroCriterio()
+{
+    return this->numeroCriterio;
+}
+
+string Criterio::getNombreCriterio()
+{
+    return this->nombreCriterio;
+}
+
+float Criterio::getPonderadoCriterio()
+{
+    return this->ponderadoCriterio;
+}
