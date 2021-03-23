@@ -1,4 +1,4 @@
-#ifndef DETALLEACTA_H
+ #ifndef DETALLEACTA_H
 #define DETALLEACTA_H
 #include "criterio.h"
 #include <iostream>

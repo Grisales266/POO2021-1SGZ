@@ -464,8 +464,5 @@ void Universidad::eliminarActaPorId()
             break;
         }
     }
-    else
-        {
-        cout<<"No existe un acta con ese id en la base de datos."<<endl;
-        }
+
 }
